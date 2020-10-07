@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import Home from './pages/Home'
-import { Navbar, NavItem, DropdownMenu } from './pages/Navbar'
-import { MdDetails, MdFastForward, MdFastRewind } from 'react-icons/md'
+import Header from './pages/Header'
+import { TopArtists } from './pages/TopArtists'
 import './global.css'
 
 function App() {
@@ -9,15 +8,7 @@ function App() {
 
   return (
     <div>
-      <Navbar>
-        <NavItem icon={<MdFastRewind />} />
-        <NavItem icon={<MdFastForward />} />
-        <NavItem icon={<MdDetails />}>
-          <DropdownMenu>
-
-          </DropdownMenu>
-        </NavItem>
-      </Navbar>
+      <TopArtists />
     </div>
   )
 }

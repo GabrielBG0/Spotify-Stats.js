@@ -1,0 +1,38 @@
+.usable-area {
+  display: flex;
+}
+
+.left-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: var(--border);
+  height: 91vh;
+  flex: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  flex: 6;
+  margin-top: 3vh;
+}
+
+.time-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.time-frame h1 {
+  color: #1db954;
+}

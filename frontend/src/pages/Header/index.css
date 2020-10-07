@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-and-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-title {
+  color: white;
+  margin: auto;
+}
+.header-form {
+  margin: auto;
+}
+
+.menu-butons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
