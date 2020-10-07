@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from '../Header'
+import Footer from '../Footer'
 import './index.css'
+
 
 function TopArtists() {
     return (
-        <div>
+        <div >
             <Header />
             <div className="usable-area">
                 <div className="left-menu">
@@ -22,7 +24,7 @@ function TopArtists() {
                     </div>
                 </div>
             </div>
-
+            <Footer />
         </div>
     )
 }

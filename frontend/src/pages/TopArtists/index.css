@@ -1,5 +1,6 @@
 .usable-area {
   display: flex;
+  height: 95vh;
 }
 
 .left-menu {
@@ -7,8 +8,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border: var(--border);
-  height: 91vh;
+  border-right: var(--border);
+  height: 100%;
   flex: 1;
 }
 
@@ -27,7 +28,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin: auto;
   height: 100%;
   width: 100%;
