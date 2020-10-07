@@ -9,7 +9,8 @@ export default function Header() {
             <Navbar className="header">
                 <div className="title-and-search"><h1 className="header-title">Spotify Stats</h1>
                     <form className="header-search">
-                        <textarea></textarea>
+                        {//<textarea></textarea>
+                        }
                     </form></div>
                 <div className="menu-butons"><NavItem icon={<MdFastRewind />} />
                     <NavItem icon={<MdFastForward />} />
