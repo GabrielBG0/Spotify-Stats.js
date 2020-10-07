@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div>
-      <TopArtists />
+      <h1>In development</h1>
     </div>
   )
 }
