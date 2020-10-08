@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navbar, NavItem, DropdownMenu } from '../Navbar'
-import { MdDetails, MdFastForward, MdFastRewind } from 'react-icons/md'
+import { FiMenu } from 'react-icons/fi'
 import './index.css'
 
 export default function Header() {
@@ -12,9 +12,8 @@ export default function Header() {
                         {//<textarea></textarea>
                         }
                     </form></div>
-                <div className="menu-butons"><NavItem icon={<MdFastRewind />} />
-                    <NavItem icon={<MdFastForward />} />
-                    <NavItem icon={<MdDetails />}>
+                <div className="menu-butons">
+                    <NavItem icon={<FiMenu />}>
                         <DropdownMenu>
 
                         </DropdownMenu>

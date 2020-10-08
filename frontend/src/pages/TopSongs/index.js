@@ -5,13 +5,13 @@ import LeftMenu from '../LeftMenu'
 import './index.css'
 
 
-export default function TopArtists(props) {
+export default function TopSongs(props) {
     return (
         <div >
             <Header />
             <div className="usable-area">
                 <div className="left-menu">
-                    <LeftMenu isHereA={true} />
+                    <LeftMenu isHereS={true} />
                 </div>
                 <div className="content">
                     <div className="time-frame">

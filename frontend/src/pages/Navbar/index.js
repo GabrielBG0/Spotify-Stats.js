@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
+import { FiXOctagon, FiSettings, FiChevronLeft, FiUser } from 'react-icons/fi'
 import './styles.css'
 
 function Navbar(props) {
@@ -51,8 +52,8 @@ function DropdownMenu() {
                 classNames="menu-primary"
                 onEnter={calcHeight}>
                 <div className="menu">
-                    <DropdownItem>My Profile</DropdownItem>
-                    <DropdownItem leftIcon="😆" goToMenu="settings">Settings</DropdownItem>
+                    <DropdownItem leftIcon={<FiUser height={20} width={20} strokeWidth={1.5} />}>My Profile</DropdownItem>
+                    <DropdownItem leftIcon={<FiSettings height={20} width={20} strokeWidth={1.5} />} goToMenu="settings">Settings</DropdownItem>
                 </div>
             </CSSTransition>
 
@@ -62,18 +63,8 @@ function DropdownMenu() {
                 classNames="menu-secondary"
                 onEnter={calcHeight}>
                 <div className="menu">
-                    <DropdownItem goToMenu="main">Return</DropdownItem>
-                    <DropdownItem leftIcon="😆">teste</DropdownItem>
-                    <DropdownItem leftIcon="😆">teste</DropdownItem>
-                    <DropdownItem leftIcon="😆">teste</DropdownItem>
-                    <DropdownItem leftIcon="😆">teste</DropdownItem>
-                    <DropdownItem leftIcon="😆">teste</DropdownItem>
-                    <DropdownItem leftIcon="😆">teste</DropdownItem>
-                    <DropdownItem leftIcon="😆">teste</DropdownItem>
-                    <DropdownItem leftIcon="😆">teste</DropdownItem>
-                    <DropdownItem leftIcon="😆">teste</DropdownItem>
-                    <DropdownItem leftIcon="😆">teste</DropdownItem>
-                    <DropdownItem leftIcon="😆">teste</DropdownItem>
+                    <DropdownItem leftIcon={<FiChevronLeft height={20} width={20} />} goToMenu="main">Return</DropdownItem>
+                    <DropdownItem leftIcon={<FiXOctagon height={20} width={20} strokeWidth={1.5} />}>Under Construction</DropdownItem>
                 </div>
             </CSSTransition>
         </div>

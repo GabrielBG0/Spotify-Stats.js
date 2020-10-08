@@ -9,26 +9,21 @@
   flex: 1;
 }
 
-.content {
+.home {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100%;
   width: 100%;
   flex: 6;
   margin-top: 3vh;
 }
 
-.time-frame {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  margin: auto;
-  height: 100%;
-  width: 100%;
+.home h1 {
+  color: #1db954;
 }
 
-.time-frame h1 {
-  color: #1db954;
+.home p {
+  color: var(--text-color);
 }
