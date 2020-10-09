@@ -32,7 +32,7 @@ export default function Home(props) {
                 <div className="home">
                     <h1>Home</h1>
                     <p>Welcome {userInfoHere && userName}to the Spotify Stats Home page</p>
-                    <button onClick={login}>teste login</button>
+                    <button onClick={login}>teste login </button>
                 </div>
             </div>
             <Footer />
