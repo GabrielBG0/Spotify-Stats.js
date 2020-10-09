@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../Header'
 import Footer from '../Footer'
 import LeftMenu from '../LeftMenu'
 import { clientId, clientSecret, redirectUri } from '../../Keys'
-import { SpotifyApi, spotifyLogin } from '../../services/spotifyApi'
 import { useHistory } from 'react-router-dom'
 import { stringify } from 'querystring'
 import './index.css'
@@ -14,8 +13,7 @@ export default function TopArtists(props) {
     async function getCode() {
         const code = stractCode(window.location.href)
         if (code !== 'access_denied') {
-
-            fetch('https://accounts.spotify.com/api/token', {
+            const result = await fetch('https://accounts.spotify.com/api/token', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -27,16 +25,25 @@ export default function TopArtists(props) {
                     'client_id': clientId,
                     'client_secret': clientSecret
                 })
-            }).then(resp => {
-                localStorage.setItem('token_data', resp)
-                console.log(resp)
             })
+
+            const data = await result.json()
+            localStorage.setItem('access_token', data.access_token)
+            localStorage.setItem('token_type', data.token_type)
+            localStorage.setItem('expires_in', data.expires_in)
+            localStorage.setItem('scope', data.scope)
+            localStorage.setItem('refresh_token', data.refresh_token)
+            history.push('/')
+
 
         } else {
             history.push('accessDenied')
         }
     }
 
+    useEffect(() => {
+        getCode()
+    })
 
     function stractCode(string) {
         const url = string.split('?').pop()
@@ -46,11 +53,11 @@ export default function TopArtists(props) {
 
     }
     return (
-        <div onLoad={getCode}>
+        <div>
             <Header />
             <div className="usable-area">
                 <div className="left-menu">
-                    <LeftMenu isHereH={true} />
+                    <LeftMenu />
                 </div>
                 <div className="home">
                     <h1>Loding...</h1>

@@ -1,17 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../Header'
 import Footer from '../Footer'
 import LeftMenu from '../LeftMenu'
-import { Login, setToken } from '../../services/spotifyApi'
+import { Login, SpotifyApi } from '../../services/spotifyApi'
 import './index.css'
 
 
-export default function TopArtists(props) {
+export default function Home(props) {
+    const [userName, setUserName] = useState('')
+    const [userInfoHere, setUserInfoHere] = useState(false)
     function login() {
-        if (!localStorage.getItem('token') || localStorage.getItem('token') === null) {
-            Login()
-        }
+        Login()
     }
+    useEffect(() => {
+        if (localStorage.getItem('access_token')) {
+            SpotifyApi.setAccessToken(localStorage.getItem('access_token'))
+            SpotifyApi.getMe({}).then(res => {
+                setUserName(res.display_name + ' ')
+                setUserInfoHere(true)
+            })
+        }
+    }, [])
+
     return (
         <div >
             <Header />
@@ -21,9 +31,9 @@ export default function TopArtists(props) {
                 </div>
                 <div className="home">
                     <h1>Home</h1>
-                    <p>Welcome to the Spotify Stats Home page</p>
+                    <p>Welcome {userInfoHere && userName}to the Spotify Stats Home page</p>
+                    <button onClick={login}>teste login</button>
                 </div>
-                <button onClick={login}>teste login</button>
             </div>
             <Footer />
         </div>

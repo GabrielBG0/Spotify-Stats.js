@@ -17,6 +17,8 @@
   width: 100%;
   flex: 6;
   margin-top: 3vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
 
 .time-frame {
@@ -24,11 +26,38 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin: auto;
+  margin-left: auto;
   height: 100%;
   width: 100%;
 }
 
 .time-frame h1 {
   color: #1db954;
+}
+
+.listing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 2vh;
+  margin-left: auto;
+  margin-right: auto;
+  list-style: none;
+}
+
+.list-itens {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1vh;
+}
+
+.list-itens img {
+  margin-right: 5px;
+  height: 45px;
+  width: 45px;
+}
+
+.list-itens p {
+  font-size: medium;
 }

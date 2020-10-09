@@ -6,16 +6,16 @@ const SpotifyApi = new SpotifyWebApi()
 const spotifyLogin = axios.create({
     baseURL: 'https://accounts.spotify.com/'
 })
+// TODO mudar com o avanço do desenvolvimento
+const scopes = 'user-top-read user-read-private user-read-recently-played'
 
 
 async function Login() {
-    // TODO mudar com o avanço do desenvolvimento
-    const scopes = 'user-top-read'
     window.location.replace('https://accounts.spotify.com/authorize' +
         '?response_type=code' +
         '&client_id=' + clientId + '&client_secret=' + clientSecret +
         '&scope=' + scopes +
-        '&redirect_uri=' + redirectUri + '&show_dialog=true')
+        '&redirect_uri=' + redirectUri)
 }
 
 function setToken() {
@@ -26,4 +26,4 @@ function setToken() {
 
 
 
-export { SpotifyApi, Login, setToken, spotifyLogin }
+export { SpotifyApi, Login, setToken, spotifyLogin, scopes }
