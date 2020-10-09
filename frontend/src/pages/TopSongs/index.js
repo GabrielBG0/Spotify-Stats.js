@@ -6,7 +6,7 @@ import { SpotifyApi } from '../../services/spotifyApi'
 import './index.css'
 
 
-export default function TopArtists(props) {
+export default function TopSongs(props) {
 
     const [topS, setTopS] = useState([])
     const [topM, setTopM] = useState([])
@@ -33,23 +33,22 @@ export default function TopArtists(props) {
 
     useEffect(() => {
         SpotifyApi.setAccessToken(localStorage.getItem('access_token'))
-        SpotifyApi.getMyTopArtists(optionsS).then(res => {
+        SpotifyApi.getMyTopTracks(optionsS).then(res => {
             setTopS(res.items)
         })
-        SpotifyApi.getMyTopArtists(optionsM).then(res => {
+        SpotifyApi.getMyTopTracks(optionsM).then(res => {
             setTopM(res.items)
         })
-        SpotifyApi.getMyTopArtists(optionsL).then(res => {
+        SpotifyApi.getMyTopTracks(optionsL).then(res => {
             setTopL(res.items)
         })
     }, [localStorage.getItem('access_token')])
-
     return (
         <div >
             <Header />
             <div className="usable-area">
                 <div className="left-menu">
-                    <LeftMenu isHereA={true} />
+                    <LeftMenu isHereS={true} />
                 </div>
                 <div className="content">
                     <div className="time-frame">
@@ -57,8 +56,8 @@ export default function TopArtists(props) {
                         <ul className="listing">
                             {topS.map(track => (
                                 <li className="list-itens">
-                                    <img src={track.images[0].url} alt="Artist Img" ></img>
-                                    <p>{track.name} with {track.popularity}/100 of popularity</p>
+                                    <img src={track.album.images[0].url} alt="Artist Img" ></img>
+                                    <p>{track.name} from {track.artists[0].name}</p>
                                 </li>
                             ))}
                         </ul>
@@ -68,8 +67,8 @@ export default function TopArtists(props) {
                         <ul className="listing">
                             {topS.map(track => (
                                 <li className="list-itens">
-                                    <img src={track.images[0].url} alt="Artist Img" ></img>
-                                    <p>{track.name} with {track.popularity}/100 of popularity</p>
+                                    <img src={track.album.images[0].url} alt="Artist Img" ></img>
+                                    <p>{track.name} from {track.artists[0].name}</p>
                                 </li>
                             ))}
                         </ul>
@@ -79,8 +78,8 @@ export default function TopArtists(props) {
                         <ul className="listing">
                             {topS.map(track => (
                                 <li className="list-itens">
-                                    <img src={track.images[0].url} alt="Artist Img" ></img>
-                                    <p>{track.name} with {track.popularity}/100 of popularity</p>
+                                    <img src={track.album.images[0].url} alt="Artist Img" ></img>
+                                    <p>{track.name} from {track.artists[0].name}</p>
                                 </li>
                             ))}
                         </ul>

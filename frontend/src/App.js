@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import Header from './pages/Header'
-import { TopArtists } from './pages/TopArtists'
+import React from 'react';
+import Routes from './routes'
 import './global.css'
 
 function App() {
@@ -8,7 +7,7 @@ function App() {
 
   return (
     <div>
-      <h1>In development</h1>
+      <Routes />
     </div>
   )
 }

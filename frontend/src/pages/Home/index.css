@@ -1,0 +1,29 @@
+.usable-area {
+  display: flex;
+  height: 95vh;
+}
+
+.left-menu {
+  border-right: var(--border);
+  height: 100%;
+  flex: 1;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  flex: 6;
+  margin-top: 3vh;
+}
+
+.home h1 {
+  color: #1db954;
+}
+
+.home p {
+  color: var(--text-color);
+}

@@ -17,6 +17,8 @@
   width: 100%;
   flex: 6;
   margin-top: 3vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
 
 .time-frame {
