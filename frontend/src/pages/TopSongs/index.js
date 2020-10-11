@@ -3,6 +3,8 @@ import Header from '../Header'
 import Footer from '../Footer'
 import LeftMenu from '../LeftMenu'
 import { SpotifyApi } from '../../services/spotifyApi'
+import { clientId, clientSecret } from '../../Keys'
+import { stringify } from 'querystring'
 import './index.css'
 
 
@@ -11,6 +13,7 @@ export default function TopSongs(props) {
     const [topS, setTopS] = useState([])
     const [topM, setTopM] = useState([])
     const [topL, setTopL] = useState([])
+    const time = new Date()
 
     const optionsS = {
         limit: 10,
@@ -30,9 +33,8 @@ export default function TopSongs(props) {
         time_range: 'long_term'
     }
 
-
-    useEffect(() => {
-        SpotifyApi.setAccessToken(localStorage.getItem('access_token'))
+    function getLists(token) {
+        SpotifyApi.setAccessToken(token)
         SpotifyApi.getMyTopTracks(optionsS).then(res => {
             setTopS(res.items)
         })
@@ -42,7 +44,42 @@ export default function TopSongs(props) {
         SpotifyApi.getMyTopTracks(optionsL).then(res => {
             setTopL(res.items)
         })
-    }, [localStorage.getItem('access_token')])
+    }
+
+    async function refreshToken() {
+        const result = await fetch('https://accounts.spotify.com/api/token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: stringify({
+                'grant_type': "refresh_token",
+                'refresh_token': localStorage.getItem('refresh_token'),
+                'client_id': clientId,
+                'client_secret': clientSecret
+            })
+        })
+
+        const data = await result.json()
+        localStorage.setItem('access_token', data.access_token)
+        localStorage.setItem('token_type', data.token_type)
+        localStorage.setItem('expires_in', data.expires_in)
+        localStorage.setItem('scope', data.scope)
+        localStorage.setItem('token_time', time.getTime() / 1000)
+
+        getLists(data.access_token)
+    }
+
+
+    useEffect(() => {
+        if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < time.getHours() / 1000) {
+            refreshToken()
+        } else {
+            getLists(localStorage.getItem('access_token'))
+        }
+    }, [])
+
+
     return (
         <div >
             <Header />
@@ -65,7 +102,7 @@ export default function TopSongs(props) {
                     <div className="time-frame">
                         <h1>Medium term</h1>
                         <ul className="listing">
-                            {topS.map(track => (
+                            {topM.map(track => (
                                 <li className="list-itens">
                                     <img src={track.album.images[0].url} alt="Artist Img" ></img>
                                     <p>{track.name} from {track.artists[0].name}</p>
@@ -76,7 +113,7 @@ export default function TopSongs(props) {
                     <div className="time-frame">
                         <h1>Long term</h1>
                         <ul className="listing">
-                            {topS.map(track => (
+                            {topL.map(track => (
                                 <li className="list-itens">
                                     <img src={track.album.images[0].url} alt="Artist Img" ></img>
                                     <p>{track.name} from {track.artists[0].name}</p>

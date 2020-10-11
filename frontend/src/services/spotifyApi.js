@@ -7,7 +7,7 @@ const spotifyLogin = axios.create({
     baseURL: 'https://accounts.spotify.com/'
 })
 // TODO mudar com o avanço do desenvolvimento
-const scopes = 'user-top-read user-read-private user-read-recently-played'
+const scopes = 'user-top-read user-read-private user-read-recently-played user-modify-playback-state user-read-recently-played'
 
 
 async function Login() {

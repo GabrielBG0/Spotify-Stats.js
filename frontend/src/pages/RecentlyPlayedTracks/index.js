@@ -5,7 +5,7 @@ import LeftMenu from '../LeftMenu'
 import './index.css'
 
 
-export default function AccessDenied(props) {
+export default function RecentlyPlayedTracks(props) {
     return (
         <div >
             <Header />
@@ -14,8 +14,7 @@ export default function AccessDenied(props) {
                     <LeftMenu isHereH={true} />
                 </div>
                 <div className="home">
-                    <h1>Hey</h1>
-                    <p>It looks like you have denied us access to your data, but it's ok! comeback later if you hcange your mind</p>
+                    <h1>Recently Played Tracks</h1>
                 </div>
             </div>
             <Footer />

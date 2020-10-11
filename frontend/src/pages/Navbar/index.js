@@ -11,6 +11,37 @@ function Navbar(props) {
     )
 }
 
+function NavButtonPlay(props) {
+
+    const [isPlaying, setIsPlaying] = useState(false)
+    return (
+        <li className="nav-item">
+            <a href="#" className="icon-button" onClick={() => {
+                if (isPlaying) {
+                    props.func[1]()
+                    setIsPlaying(!isPlaying)
+                } else {
+                    props.func[0]()
+                    setIsPlaying(!isPlaying)
+                }
+            }}>
+                {props.icon[1]}
+                {props.icon[0]}
+            </a>
+        </li>
+    )
+}
+
+function NavButton(props) {
+    return (
+        <li className="nav-item">
+            <a href="#" className="icon-button" onClick={() => props.func}>
+                {props.icon}
+            </a>
+        </li>
+    )
+}
+
 function NavItem(props) {
 
     const [open, setOpen] = useState(false)
@@ -72,4 +103,4 @@ function DropdownMenu() {
     )
 }
 
-export { Navbar, NavItem, DropdownMenu }
+export { Navbar, NavItem, DropdownMenu, NavButton, NavButtonPlay }

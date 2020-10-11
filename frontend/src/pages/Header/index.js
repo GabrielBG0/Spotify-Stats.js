@@ -1,10 +1,11 @@
-import React from 'react'
-import { Navbar, NavItem, DropdownMenu } from '../Navbar'
-import { FiMenu } from 'react-icons/fi'
+import React, { useEffect } from 'react'
+import { Navbar, NavItem, DropdownMenu, NavButton } from '../Navbar'
+import { FiMenu, FiPlay, FiSkipForward, FiSkipBack, FiPause } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import './index.css'
 
 export default function Header() {
+
     return (
         <div>
             <Navbar className="header">
@@ -12,15 +13,10 @@ export default function Header() {
                     <Link to='/'>
                         <h1 className="header-title">Spotify Stats</h1>
                     </Link>
-                    <form className="header-search">
-                        {//<textarea></textarea>
-                        }
-                    </form></div>
+                </div>
                 <div className="menu-butons">
                     <NavItem icon={<FiMenu />}>
-                        <DropdownMenu>
-
-                        </DropdownMenu>
+                        <DropdownMenu />
                     </NavItem></div>
 
             </Navbar>
