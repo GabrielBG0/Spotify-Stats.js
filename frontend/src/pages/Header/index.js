@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import { Navbar, NavItem, DropdownMenu, NavButton } from '../Navbar'
-import { FiMenu, FiPlay, FiSkipForward, FiSkipBack, FiPause } from 'react-icons/fi'
+import React from 'react'
+import { Navbar, NavItem, DropdownMenu, NavButtonNP, NavButtonPlay } from '../Navbar'
+import { FiMenu } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import './index.css'
 
@@ -15,6 +15,9 @@ export default function Header() {
                     </Link>
                 </div>
                 <div className="menu-butons">
+                    <NavButtonNP next={false} />
+                    <NavButtonPlay />
+                    <NavButtonNP next={true} />
                     <NavItem icon={<FiMenu />}>
                         <DropdownMenu />
                     </NavItem></div>

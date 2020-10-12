@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '../Header'
 import Footer from '../Footer'
 import LeftMenu from '../LeftMenu'
-import { SpotifyApi } from '../../services/spotifyApi'
-import { clientId, clientSecret } from '../../Keys'
-import { stringify } from 'querystring'
+import { SpotifyApi, refreshToken } from '../../services/spotifyApi'
 import './index.css'
 
 
@@ -46,37 +44,15 @@ export default function TopArtists(props) {
         })
     }
 
-    async function refreshToken() {
-        const result = await fetch('https://accounts.spotify.com/api/token', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: stringify({
-                'grant_type': "refresh_token",
-                'refresh_token': localStorage.getItem('refresh_token'),
-                'client_id': clientId,
-                'client_secret': clientSecret
-            })
-        })
 
-        const data = await result.json()
-        localStorage.setItem('access_token', data.access_token)
-        localStorage.setItem('token_type', data.token_type)
-        localStorage.setItem('expires_in', data.expires_in)
-        localStorage.setItem('scope', data.scope)
-        localStorage.setItem('token_time', time.getTime() / 1000)
-
-        getLists(data.access_token)
-    }
 
 
     useEffect(() => {
-        if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < (time.getHours() / 1000)) {
+        if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < (time.getTime() / 1000)) {
             refreshToken()
-        } else {
-            getLists(localStorage.getItem('access_token'))
         }
+        getLists(localStorage.getItem('access_token'))
+
     }, [])
 
     return (
