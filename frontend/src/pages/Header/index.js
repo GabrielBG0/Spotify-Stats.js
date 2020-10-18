@@ -11,7 +11,7 @@ export default function Header() {
             <Navbar className="header">
                 <div className="title-and-search">
                     <Link to='/'>
-                        <h1 className="header-title">Spotify Stats</h1>
+                        <h1 className="header-title">Analysis for Spotify</h1>
                     </Link>
                 </div>
                 <div className="menu-butons">
