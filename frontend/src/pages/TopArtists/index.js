@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '../Header'
 import Footer from '../Footer'
 import LeftMenu from '../LeftMenu'
-import { SpotifyApi } from '../../services/spotifyApi'
+import { SpotifyApi, refreshToken } from '../../services/spotifyApi'
 import './index.css'
 
 
@@ -11,6 +11,7 @@ export default function TopArtists(props) {
     const [topS, setTopS] = useState([])
     const [topM, setTopM] = useState([])
     const [topL, setTopL] = useState([])
+    const time = new Date()
 
     const optionsS = {
         limit: 10,
@@ -30,9 +31,8 @@ export default function TopArtists(props) {
         time_range: 'long_term'
     }
 
-
-    useEffect(() => {
-        SpotifyApi.setAccessToken(localStorage.getItem('access_token'))
+    async function getLists(token) {
+        SpotifyApi.setAccessToken(token)
         SpotifyApi.getMyTopArtists(optionsS).then(res => {
             setTopS(res.items)
         })
@@ -42,7 +42,18 @@ export default function TopArtists(props) {
         SpotifyApi.getMyTopArtists(optionsL).then(res => {
             setTopL(res.items)
         })
-    }, [localStorage.getItem('access_token')])
+    }
+
+
+
+
+    useEffect(() => {
+        if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < (time.getTime() / 1000)) {
+            refreshToken()
+        }
+        getLists(localStorage.getItem('access_token'))
+
+    }, [])
 
     return (
         <div >
@@ -66,7 +77,7 @@ export default function TopArtists(props) {
                     <div className="time-frame">
                         <h1>Medium term</h1>
                         <ul className="listing">
-                            {topS.map(track => (
+                            {topM.map(track => (
                                 <li className="list-itens">
                                     <img src={track.images[0].url} alt="Artist Img" ></img>
                                     <p>{track.name} with {track.popularity}/100 of popularity</p>
@@ -77,7 +88,7 @@ export default function TopArtists(props) {
                     <div className="time-frame">
                         <h1>Long term</h1>
                         <ul className="listing">
-                            {topS.map(track => (
+                            {topL.map(track => (
                                 <li className="list-itens">
                                     <img src={track.images[0].url} alt="Artist Img" ></img>
                                     <p>{track.name} with {track.popularity}/100 of popularity</p>

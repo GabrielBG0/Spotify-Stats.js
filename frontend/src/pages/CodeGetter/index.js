@@ -10,6 +10,7 @@ import './index.css'
 
 export default function TopArtists(props) {
     const history = useHistory()
+    const time = new Date()
     async function getCode() {
         const code = stractCode(window.location.href)
         if (code !== 'access_denied') {
@@ -33,6 +34,7 @@ export default function TopArtists(props) {
             localStorage.setItem('expires_in', data.expires_in)
             localStorage.setItem('scope', data.scope)
             localStorage.setItem('refresh_token', data.refresh_token)
+            localStorage.setItem('token_time', time.getTime() / 1000)
             history.push('/')
 
 
