@@ -18,7 +18,6 @@
     "webpack-cli": "^4.0.0"
   },
   "scripts": {
-    "dev": "webpack --env.ENVIRONMENT=development --config webpack.config.dev.js",
     "build": "react-scripts build",
     "start": "react-scripts start",
     "test": "react-scripts test",
