@@ -1,5 +1,4 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-src/Keys.js
 
 # dependencies
 /node_modules
@@ -19,6 +18,8 @@ src/Keys.js
 .env.test.local
 .env.production.local
 .env
+.env.development
+.env.production
 
 npm-debug.log*
 yarn-debug.log*
