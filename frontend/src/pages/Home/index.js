@@ -19,6 +19,7 @@ export default function Home(props) {
                 setUserName(res.display_name + ' ')
                 setUserInfoHere(true)
             })
+
         }
     }, [])
 
@@ -32,7 +33,11 @@ export default function Home(props) {
                 <div className="home">
                     <h1>Home</h1>
                     <p>Welcome {userInfoHere && userName}to the Spotify Stats Home page</p>
-                    <button onClick={login}>teste login</button>
+                    {!userInfoHere &&
+                        <div className="text">
+                            <p>For prociding with authrization click on the Login button</p>
+                            <button onClick={login}>Login</button>
+                        </div>}
                 </div>
             </div>
             <Footer />

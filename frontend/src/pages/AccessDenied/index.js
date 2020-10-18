@@ -5,7 +5,7 @@ import LeftMenu from '../LeftMenu'
 import './index.css'
 
 
-export default function TopArtists(props) {
+export default function AccessDenied(props) {
     return (
         <div >
             <Header />

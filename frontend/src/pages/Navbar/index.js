@@ -1,13 +1,113 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { FiXOctagon, FiSettings, FiChevronLeft, FiUser } from 'react-icons/fi'
+import { SpotifyApi, refreshToken } from '../../services/spotifyApi'
+import { FiPlay, FiSkipForward, FiSkipBack, FiPause } from 'react-icons/fi'
 import './styles.css'
 
 function Navbar(props) {
+
     return (
         <nav className="navbar">
             <ul className="navbar-nav">{props.children}</ul>
         </nav>
+    )
+}
+
+function NavButtonPlay(props) {
+    const [token, setToken] = useState(localStorage.getItem('access_token'))
+    const [isPlaying, setIsPlaying] = useState(false)
+    const time = new Date()
+
+    async function Play() {
+        if (!SpotifyApi.getAccessToken) {
+            SpotifyApi.setAccessToken(token)
+        }
+        SpotifyApi.play()
+        setIsPlaying(true)
+    }
+
+    async function Pause() {
+        if (!SpotifyApi.getAccessToken) {
+            SpotifyApi.setAccessToken(token)
+        }
+        SpotifyApi.pause()
+        setIsPlaying(false)
+    }
+
+
+    useEffect(() => {
+        if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < (time.getTime() / 1000)) {
+            refreshToken()
+        }
+        setToken(localStorage.getItem('access_token'))
+    }, [])
+
+    return (
+        <li className="nav-item">
+            <a href="#" className="icon-button" onClick={() => {
+                if (isPlaying) {
+                    Pause()
+                } else if (!isPlaying) {
+                    Play()
+                }
+            }}>
+                {!isPlaying && <FiPlay />}
+                {isPlaying && <FiPause />}
+            </a>
+        </li>
+    )
+}
+
+function NavButtonNP(props) {
+
+    const [token, setToken] = useState(localStorage.getItem('access_token'))
+    const time = new Date()
+
+    function Next() {
+        if (!SpotifyApi.getAccessToken) {
+            SpotifyApi.setAccessToken(token)
+        }
+        SpotifyApi.skipToNext()
+    }
+
+    function Previous() {
+        if (!SpotifyApi.getAccessToken) {
+            SpotifyApi.setAccessToken(token)
+        }
+        SpotifyApi.skipToPrevious()
+    }
+
+    useEffect(() => {
+        if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < (time.getHours() / 1000)) {
+            refreshToken()
+            setToken(localStorage.getItem('access_token'))
+        }
+    }, [])
+
+    return (
+        <li className="nav-item">
+            <a href="#" className="icon-button" onClick={() => {
+                if (props.next) {
+                    Next()
+                } else {
+                    Previous()
+                }
+            }}>
+                {props.next && <FiSkipForward />}
+                {!props.next && <FiSkipBack />}
+            </a>
+        </li>
+    )
+}
+
+function NavButton(props) {
+    return (
+        <li className="nav-item">
+            <a href="#" className="icon-button" >
+                {props.icon}
+            </a>
+        </li>
     )
 }
 
@@ -72,4 +172,4 @@ function DropdownMenu() {
     )
 }
 
-export { Navbar, NavItem, DropdownMenu }
+export { Navbar, NavItem, DropdownMenu, NavButton, NavButtonPlay, NavButtonNP }

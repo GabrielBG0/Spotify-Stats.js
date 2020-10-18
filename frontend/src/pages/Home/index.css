@@ -27,3 +27,27 @@
 .home p {
   color: var(--text-color);
 }
+
+.home button {
+  width: 120px;
+  height: 30px;
+  background: #1db954;
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  margin-top: 16px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 20px;
+  margin: auto;
+  margin-left: 10px;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
