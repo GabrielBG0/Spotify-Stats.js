@@ -1,7 +1,7 @@
 import React from 'react';
 import Routes from './routes'
-import Header from './pages/Header'
-import Footer from './pages/Footer'
+import Header from '../Header'
+import Footer from '../Footer'
 import './global.css'
 
 function App() {
