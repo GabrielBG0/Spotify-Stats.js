@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { FiXOctagon, FiSettings, FiChevronLeft, FiUser } from 'react-icons/fi'
-import { SpotifyApi, refreshToken } from '../../services/spotifyApi'
+import { SpotifyApi, refreshToken } from '../../../services/spotifyApi'
 import { FiPlay, FiSkipForward, FiSkipBack, FiPause } from 'react-icons/fi'
 import './styles.css'
 

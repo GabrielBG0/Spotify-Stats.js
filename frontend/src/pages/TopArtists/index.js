@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../Header'
-import Footer from '../Footer'
 import LeftMenu from '../LeftMenu'
 import { SpotifyApi, refreshToken } from '../../services/spotifyApi'
 import './index.css'
@@ -57,7 +55,6 @@ export default function TopArtists(props) {
 
     return (
         <div >
-            <Header />
             <div className="usable-area">
                 <div className="left-menu">
                     <LeftMenu isHereA={true} />
@@ -98,7 +95,6 @@ export default function TopArtists(props) {
                     </div>
                 </div>
             </div>
-            <Footer />
         </div>
     )
 }
