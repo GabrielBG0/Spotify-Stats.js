@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, NavItem, DropdownMenu, NavButtonNP, NavButtonPlay } from './Navbar'
+import { Navbar, NavItem, DropdownMenu, NavButtonNP, NavButtonPlay } from '../Navbar'
 import { FiMenu } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import './index.css'

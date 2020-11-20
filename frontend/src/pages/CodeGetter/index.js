@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import Header from '../Header'
+import Footer from '../Footer'
 import LeftMenu from '../LeftMenu'
 import { clientId, clientSecret, redirectUri } from '../../Keys'
 import { useHistory } from 'react-router-dom'
@@ -54,6 +56,7 @@ export default function TopArtists(props) {
     }
     return (
         <div>
+            <Header />
             <div className="usable-area">
                 <div className="left-menu">
                     <LeftMenu />
@@ -63,6 +66,7 @@ export default function TopArtists(props) {
                     <p>Preparing Content</p>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
