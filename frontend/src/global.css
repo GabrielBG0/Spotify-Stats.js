@@ -22,6 +22,20 @@ p {
   --border: 1px solid #474a4d;
   --border-radius: 8px;
   --speed: 500ms;
+  --spot-color: #1db954;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-nav);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--spot-color);
+  border-radius: 5px;
+  transition: 300ms;
 }
 
 body {

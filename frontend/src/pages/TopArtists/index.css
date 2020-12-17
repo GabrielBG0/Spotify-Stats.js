@@ -22,6 +22,8 @@
   width: 100%;
   flex: 6;
   margin-top: 3vh;
+  margin-bottom: 3vh;
+  overflow: scroll;
 }
 
 .time-frame {
