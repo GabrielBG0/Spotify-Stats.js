@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../Header'
-import Footer from '../Footer'
 import LeftMenu from '../LeftMenu'
 import { SpotifyApi, refreshToken } from '../../services/spotifyApi'
 import './index.css'
@@ -14,19 +13,19 @@ export default function TopSongs(props) {
     const time = new Date()
 
     const optionsS = {
-        limit: 10,
+        limit: 20,
         offset: 0,
         time_range: 'short_term'
     }
 
     const optionsM = {
-        limit: 10,
+        limit: 20,
         offset: 0,
         time_range: 'medium_term'
     }
 
     const optionsL = {
-        limit: 10,
+        limit: 20,
         offset: 0,
         time_range: 'long_term'
     }
@@ -64,10 +63,10 @@ export default function TopSongs(props) {
                     <div className="time-frame">
                         <h1>Short Term</h1>
                         <ul className="listing">
-                            {topS.map(track => (
+                            {topS.map((track, index) => (
                                 <li className="list-itens">
                                     <img src={track.album.images[0].url} alt="Artist Img" ></img>
-                                    <p>{track.name} from {track.artists[0].name}</p>
+                                    <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
                                 </li>
                             ))}
                         </ul>
@@ -75,10 +74,10 @@ export default function TopSongs(props) {
                     <div className="time-frame">
                         <h1>Medium term</h1>
                         <ul className="listing">
-                            {topM.map(track => (
+                            {topM.map((track, index) => (
                                 <li className="list-itens">
                                     <img src={track.album.images[0].url} alt="Artist Img" ></img>
-                                    <p>{track.name} from {track.artists[0].name}</p>
+                                    <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
                                 </li>
                             ))}
                         </ul>
@@ -86,17 +85,16 @@ export default function TopSongs(props) {
                     <div className="time-frame">
                         <h1>Long term</h1>
                         <ul className="listing">
-                            {topL.map(track => (
+                            {topL.map((track, index) => (
                                 <li className="list-itens">
                                     <img src={track.album.images[0].url} alt="Artist Img" ></img>
-                                    <p>{track.name} from {track.artists[0].name}</p>
+                                    <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
                                 </li>
                             ))}
                         </ul>
                     </div>
                 </div>
             </div>
-            <Footer />
         </div>
     )
 }

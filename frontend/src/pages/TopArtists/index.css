@@ -1,11 +1,6 @@
 .usable-area {
   display: flex;
-  height: 95vh;
-}
-
-.footer {
-  position: "fixed";
-  bottom: "0";
+  height: 100vh;
 }
 
 .left-menu {
@@ -22,6 +17,7 @@
   width: 100%;
   flex: 6;
   margin-top: 3vh;
+  overflow: scroll;
 }
 
 .time-frame {
@@ -32,6 +28,7 @@
   margin-left: auto;
   height: 100%;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .time-frame h1 {
@@ -46,13 +43,14 @@
   margin-top: 2vh;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 2vh;
   list-style: none;
 }
 
 .list-itens {
   display: flex;
   align-items: center;
-  margin-bottom: 1vh;
+  margin-bottom: 3vh;
 }
 
 .list-itens img {
