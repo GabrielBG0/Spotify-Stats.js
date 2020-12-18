@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../Header'
-import Footer from '../Footer'
 import LeftMenu from '../LeftMenu'
 import { Login, SpotifyApi } from '../../services/spotifyApi'
 import './index.css'
@@ -40,7 +39,6 @@ export default function Home(props) {
                         </div>}
                 </div>
             </div>
-            <Footer />
         </div>
     )
 }

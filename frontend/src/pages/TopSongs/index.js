@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../Header'
-import Footer from '../Footer'
 import LeftMenu from '../LeftMenu'
 import { SpotifyApi, refreshToken } from '../../services/spotifyApi'
 import './index.css'
@@ -14,19 +13,19 @@ export default function TopSongs(props) {
     const time = new Date()
 
     const optionsS = {
-        limit: 15,
+        limit: 20,
         offset: 0,
         time_range: 'short_term'
     }
 
     const optionsM = {
-        limit: 15,
+        limit: 20,
         offset: 0,
         time_range: 'medium_term'
     }
 
     const optionsL = {
-        limit: 15,
+        limit: 20,
         offset: 0,
         time_range: 'long_term'
     }
@@ -96,7 +95,6 @@ export default function TopSongs(props) {
                     </div>
                 </div>
             </div>
-            <Footer />
         </div>
     )
 }
