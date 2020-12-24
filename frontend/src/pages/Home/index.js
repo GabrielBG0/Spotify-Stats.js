@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Header from '../Header'
+import Header from '../../components/Header'
 import LeftMenu from '../LeftMenu'
 import { Login, SpotifyApi } from '../../services/spotifyApi'
 import './index.css'
