@@ -1,14 +1,3 @@
-.usable-area {
-  display: flex;
-  height: 95vh;
-}
-
-.left-menu {
-  border-right: var(--border);
-  height: 100%;
-  flex: 1;
-}
-
 .home {
   display: flex;
   flex-direction: column;

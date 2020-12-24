@@ -2,13 +2,18 @@
   width: 100%;
 }
 
-.menu-item {
+.left-menu-item {
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 0.5rem;
   font-size: large;
+  border-radius: var(--border-radius);
+  transition: background var(--speed);
+}
+.left-menu-item:hover {
+  background-color: var(--bg-nav);
 }
 
 .is-here {
@@ -17,11 +22,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: filter 300ms;
-}
-
-.is-here:hover {
-  filter: brightness(1.2);
 }
 
 .icon {
