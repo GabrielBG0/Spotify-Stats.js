@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../Header'
+import Header from '../../components/Header'
 import LeftMenu from '../LeftMenu'
+import ArtistCard from '../../components/ArtistCard'
 import { SpotifyApi, refreshToken } from '../../services/spotifyApi'
 import './index.css'
 
@@ -65,10 +66,12 @@ export default function TopArtists(props) {
           <div className="time-frame">
             <h1>1 Month</h1>
             <ul className="listing">
-              {topS.map((track, index) => (
+              {topS.map((artist, index) => (
                 <li className="list-itens">
-                  <img src={track.images[0].url} alt="Artist Img" ></img>
-                  <p>{index + 1}- {track.name}</p>
+                  <ArtistCard artist={artist}>
+                    <img src={artist.images[0].url} alt="Artist Img" ></img>
+                    <p>{index + 1}- {artist.name}</p>
+                  </ArtistCard>
                 </li>
               ))}
             </ul>
@@ -76,10 +79,12 @@ export default function TopArtists(props) {
           <div className="time-frame">
             <h1>6 Months</h1>
             <ul className="listing">
-              {topM.map((track, index) => (
+              {topM.map((artist, index) => (
                 <li className="list-itens">
-                  <img src={track.images[0].url} alt="Artist Img" ></img>
-                  <p>{index + 1}- {track.name}</p>
+                  <ArtistCard artist={artist}>
+                    <img src={artist.images[0].url} alt="Artist Img" ></img>
+                    <p>{index + 1}- {artist.name}</p>
+                  </ArtistCard>
                 </li>
               ))}
             </ul>
@@ -87,10 +92,12 @@ export default function TopArtists(props) {
           <div className="time-frame">
             <h1>Years</h1>
             <ul className="listing">
-              {topL.map((track, index) => (
+              {topL.map((artist, index) => (
                 <li className="list-itens">
-                  <img src={track.images[0].url} alt="Artist Img" ></img>
-                  <p>{index + 1}- {track.name}</p>
+                  <ArtistCard artist={artist}>
+                    <img src={artist.images[0].url} alt="Artist Img" ></img>
+                    <p>{index + 1}- {artist.name}</p>
+                  </ArtistCard>
                 </li>
               ))}
             </ul>

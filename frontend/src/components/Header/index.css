@@ -13,7 +13,11 @@
 .header-title {
   color: white;
   margin: auto;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 36px;
+  text-align: center;
 }
+
 .header-form {
   margin: auto;
 }

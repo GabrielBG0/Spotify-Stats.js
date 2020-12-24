@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import Header from '../Header'
+import Header from '../../components/Header'
 import LeftMenu from '../LeftMenu'
 import { clientId, clientSecret, redirectUri } from '../../Keys'
 import { useHistory } from 'react-router-dom'
