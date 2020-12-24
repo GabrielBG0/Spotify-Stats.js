@@ -152,7 +152,6 @@ function DropdownMenu() {
                 classNames="menu-primary"
                 onEnter={calcHeight}>
                 <div className="menu">
-                    <DropdownItem leftIcon={<FiUser height={20} width={20} strokeWidth={1.5} />}>My Profile</DropdownItem>
                     <DropdownItem leftIcon={<FiSettings height={20} width={20} strokeWidth={1.5} />} goToMenu="settings">Settings</DropdownItem>
                 </div>
             </CSSTransition>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../Header'
-import Footer from '../Footer'
 import LeftMenu from '../LeftMenu'
 import { SpotifyApi, refreshToken } from '../../services/spotifyApi'
 import './index.css'
@@ -41,7 +40,6 @@ export default function RecentlyPlayedTracks(props) {
                     </ul>
                 </div>
             </div>
-            <Footer />
         </div>
     )
 }

@@ -22,7 +22,7 @@ export default function LeftMenu(props) {
 
 function MenuItens(props) {
     return (
-        <Link className="menu-item" to={props.link}>
+        <Link className="left-menu-item" to={props.link}>
             <span className="is-here">{props.isHere && props.inHereBar}</span>
             {props.children}
             <span className="icon">{props.icon}</span>

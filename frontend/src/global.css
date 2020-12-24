@@ -69,3 +69,25 @@ a {
 .content-wrap {
   flex: 1;
 }
+
+.usable-area {
+  display: flex;
+  height: 100vh;
+}
+
+.left-menu {
+  border-right: var(--border);
+  height: 100%;
+  flex: 1;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  flex: 6;
+  margin-top: 3vh;
+  overflow: scroll;
+}
