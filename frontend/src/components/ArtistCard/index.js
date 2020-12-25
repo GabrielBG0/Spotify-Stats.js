@@ -62,7 +62,7 @@ export default function ArtistCard(props) {
                     </span>))}
                   </li>
                   <li>
-                    <h3>Followers: </h3>{props.artist.followers.total}
+                    <h3>Followers: </h3>{props.artist.followers.total.toLocaleString('en-US')}
                   </li>
                   <li>
                     <h3>Popularity: </h3>{props.artist.popularity}/100
