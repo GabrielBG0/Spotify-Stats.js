@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { FiXOctagon, FiSettings, FiChevronLeft, FiUser } from 'react-icons/fi'
 import { SpotifyApi, refreshToken } from '../../../services/spotifyApi'
-import { FiPlay, FiSkipForward, FiSkipBack, FiPause } from 'react-icons/fi'
+import { FiPlay, FiSkipForward, FiSkipBack, FiPause, FiTablet, FiSpeaker, FiTv, FiSmartphone } from 'react-icons/fi'
+import { BiDevices } from 'react-icons/bi'
+import { GoDeviceDesktop } from 'react-icons/go'
+import { RiQuestionLine } from 'react-icons/ri'
+import { GiConsoleController } from 'react-icons/gi'
+import { AiOutlineCar } from 'react-icons/ai'
 import './styles.css'
 
 function Navbar(props) {
@@ -124,10 +129,13 @@ function NavItem(props) {
     )
 }
 
-function DropdownMenu() {
+function DropdownMenu(props) {
 
     const [activeMenu, setActiveMenu] = useState('main')
     const [menuHeight, setMenuHeight] = useState(null)
+    const [token, setToken] = useState(localStorage.getItem('access_token'))
+    const [devices, setDevices] = useState([])
+    const time = new Date()
 
     function calcHeight(el) {
         const height = el.offsetHeight
@@ -143,6 +151,50 @@ function DropdownMenu() {
             </a>
         )
     }
+
+    function setDefaultDevice(device) {
+        localStorage.setItem('device', device)
+    }
+
+    function setDeviceIcon(deviceType) {
+        switch (deviceType) {
+            case 'Computer':
+                return (<GoDeviceDesktop height={20} width={20} />)
+            case 'Tablet':
+                return (<FiTablet height={20} width={20} />)
+            case 'Smartphone':
+                return (<FiSmartphone height={30} width={30} />)
+            case 'Speaker':
+                return (<FiSpeaker height={20} width={20} />)
+            case 'TV':
+                return (<FiTv height={20} width={20} />)
+            case 'GameConsole':
+                return (<GiConsoleController height={20} width={20} />)
+            case 'Automobile':
+                return (<AiOutlineCar height={20} width={20} />)
+            default:
+                return (<RiQuestionLine height={20} width={20} />)
+        }
+
+    }
+
+    async function getDevices() {
+        if (!SpotifyApi.getAccessToken) {
+            SpotifyApi.setAccessToken(token)
+        }
+        const list = await SpotifyApi.getMyDevices()
+        setDevices(list.devices)
+    }
+
+    useEffect(() => {
+        if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < (time.getHours() / 1000)) {
+            refreshToken()
+            setToken(localStorage.getItem('access_token'))
+        }
+        getDevices()
+        console.log(devices)
+    }, [token])
+
     return (
 
         <div className="dropdown" style={{ height: menuHeight }}>
@@ -152,7 +204,7 @@ function DropdownMenu() {
                 classNames="menu-primary"
                 onEnter={calcHeight}>
                 <div className="menu">
-                    <DropdownItem leftIcon={<FiSettings height={20} width={20} strokeWidth={1.5} />} goToMenu="settings">Settings</DropdownItem>
+                    <DropdownItem leftIcon={<BiDevices height={20} width={20} />} goToMenu="settings">Devices</DropdownItem>
                 </div>
             </CSSTransition>
 
@@ -162,8 +214,10 @@ function DropdownMenu() {
                 classNames="menu-secondary"
                 onEnter={calcHeight}>
                 <div className="menu">
-                    <DropdownItem leftIcon={<FiChevronLeft height={20} width={20} />} goToMenu="main">Return</DropdownItem>
-                    <DropdownItem leftIcon={<FiXOctagon height={20} width={20} strokeWidth={1.5} />}>Under Construction</DropdownItem>
+                    <DropdownItem leftIcon={<FiChevronLeft height={20} width={20} strokeWidth={1.5} />} goToMenu="main">Return</DropdownItem>
+                    {devices && devices.map((device) => (
+                        <button onClick={setDefaultDevice(device.id)}><DropdownItem leftIcon={setDeviceIcon(device.type)}>{device.name}</DropdownItem></button>
+                    ))}
                 </div>
             </CSSTransition>
         </div>

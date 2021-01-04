@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navbar, NavItem, DropdownMenu, NavButtonNP, NavButtonPlay } from './Navbar'
 import { FiMenu } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
+import { SpotifyApi, refreshToken } from '../../services/spotifyApi'
 import './index.css'
 
 export default function Header() {
