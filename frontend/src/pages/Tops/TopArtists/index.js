@@ -37,6 +37,7 @@ export default function TopArtists(props) {
       setTopS(res.items)
     })
     SpotifyApi.getMyTopArtists(optionsM).then(res => {
+
       setTopM(res.items)
     })
     SpotifyApi.getMyTopArtists(optionsL).then(res => {
