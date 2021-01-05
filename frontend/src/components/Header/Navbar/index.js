@@ -28,9 +28,6 @@ function NavButtonPlay(props) {
     if (!SpotifyApi.getAccessToken) {
       SpotifyApi.setAccessToken(token)
     }
-    if (localStorage.getItem('device')) {
-      SpotifyApi.play({ device_id: localStorage.getItem('device') })
-    }
     SpotifyApi.play()
     setIsPlaying(true)
   }
@@ -43,13 +40,23 @@ function NavButtonPlay(props) {
     setIsPlaying(false)
   }
 
+  async function setPlaybackStatus() {
+    if (!SpotifyApi.getAccessToken) {
+      SpotifyApi.setAccessToken(token)
+    }
+    const playback = await SpotifyApi.getMyCurrentPlaybackState()
+    setIsPlaying(playback.is_playing)
+  }
+
 
   useEffect(() => {
     if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < (time.getTime() / 1000)) {
       refreshToken()
+      setToken(localStorage.getItem('access_token'))
     }
-    setToken(localStorage.getItem('access_token'))
-  }, [])
+    setPlaybackStatus()
+
+  }, [token])
 
   return (
     <li className="nav-item">
@@ -86,12 +93,13 @@ function NavButtonNP(props) {
     SpotifyApi.skipToPrevious()
   }
 
+
   useEffect(() => {
     if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < (time.getHours() / 1000)) {
       refreshToken()
       setToken(localStorage.getItem('access_token'))
     }
-  }, [])
+  }, [token])
 
   return (
     <li className="nav-item">
@@ -155,10 +163,6 @@ function DropdownMenu(props) {
     )
   }
 
-  function setDefaultDevice(device) {
-    localStorage.setItem('device', device)
-  }
-
   function setDeviceIcon(deviceType) {
     switch (deviceType) {
       case 'Computer':
@@ -178,7 +182,6 @@ function DropdownMenu(props) {
       default:
         return (<RiQuestionLine height={20} width={20} />)
     }
-
   }
 
   async function getDevices() {
@@ -190,15 +193,11 @@ function DropdownMenu(props) {
   }
 
   useEffect(() => {
-    if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < (time.getTime() / 1000)) {
-      refreshToken()
-    }
     if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < (time.getHours() / 1000)) {
       refreshToken()
       setToken(localStorage.getItem('access_token'))
     }
     getDevices()
-    console.log(devices)
   }, [token])
 
   return (
@@ -222,7 +221,7 @@ function DropdownMenu(props) {
         <div className="menu">
           <DropdownItem leftIcon={<FiChevronLeft height={20} width={20} strokeWidth={1.5} />} goToMenu="main">Return</DropdownItem>
           {devices && devices.map((device) => (
-            <DropdownItem onClick={setDefaultDevice(device.id)} leftIcon={setDeviceIcon(device.type)}>{device.name}</DropdownItem>
+            <DropdownItem leftIcon={setDeviceIcon(device.type)} goToMenu="main">{device.name}</DropdownItem>
           ))}
           <DropdownItem leftIcon={<RiQuestionLine height={20} width={20} />}>Didn't find your device?</DropdownItem>
         </div>
