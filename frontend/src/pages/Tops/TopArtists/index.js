@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../../components/Header'
-import LeftMenu from '../LeftMenu'
-import MusicCard from '../../components/MusicCard'
-import { SpotifyApi, refreshToken } from '../../services/spotifyApi'
-import './index.css'
+import Header from '../../../components/Header'
+import LeftMenu from '../../LeftMenu'
+import ArtistCard from '../../../components/ArtistCard'
+import { SpotifyApi, refreshToken } from '../../../services/spotifyApi'
+import '../index.css'
 
 
-export default function TopSongs(props) {
+export default function TopArtists(props) {
 
   const [topS, setTopS] = useState([])
   const [topM, setTopM] = useState([])
@@ -14,62 +14,61 @@ export default function TopSongs(props) {
   const time = new Date()
 
   const optionsS = {
-    limit: 20,
+    limit: 15,
     offset: 0,
     time_range: 'short_term'
   }
 
   const optionsM = {
-    limit: 20,
+    limit: 15,
     offset: 0,
     time_range: 'medium_term'
   }
 
   const optionsL = {
-    limit: 20,
+    limit: 15,
     offset: 0,
     time_range: 'long_term'
   }
 
-  function getLists(token) {
+  async function getLists(token) {
     SpotifyApi.setAccessToken(token)
-    SpotifyApi.getMyTopTracks(optionsS).then(res => {
+    SpotifyApi.getMyTopArtists(optionsS).then(res => {
       setTopS(res.items)
     })
-    SpotifyApi.getMyTopTracks(optionsM).then(res => {
+    SpotifyApi.getMyTopArtists(optionsM).then(res => {
       setTopM(res.items)
     })
-    SpotifyApi.getMyTopTracks(optionsL).then(res => {
+    SpotifyApi.getMyTopArtists(optionsL).then(res => {
       setTopL(res.items)
     })
   }
 
-
   useEffect(() => {
-    if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < time.getHours() / 1000) {
+    if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < (time.getTime() / 1000)) {
       refreshToken()
     }
     getLists(localStorage.getItem('access_token'))
-  }, [])
 
+  }, [])
 
   return (
     <div >
       <Header />
       <div className="usable-area">
         <div className="left-menu">
-          <LeftMenu isHereS={true} />
+          <LeftMenu isHereA={true} />
         </div>
         <div className="content">
           <div className="time-frame">
             <h1>1 Month</h1>
             <ul className="listing">
-              {topS.map((track, index) => (
+              {topS.map((artist, index) => (
                 <li className="list-itens">
-                  <MusicCard track={track}>
-                    <img src={track.album.images[0].url} alt="Artist Img" ></img>
-                    <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
-                  </MusicCard>
+                  <ArtistCard artist={artist}>
+                    <img src={artist.images[0].url} alt="Artist Img" ></img>
+                    <p>{index + 1}- {artist.name}</p>
+                  </ArtistCard>
                 </li>
               ))}
             </ul>
@@ -77,12 +76,12 @@ export default function TopSongs(props) {
           <div className="time-frame">
             <h1>6 Months</h1>
             <ul className="listing">
-              {topM.map((track, index) => (
+              {topM.map((artist, index) => (
                 <li className="list-itens">
-                  <MusicCard track={track}>
-                    <img src={track.album.images[0].url} alt="Artist Img" ></img>
-                    <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
-                  </MusicCard>
+                  <ArtistCard artist={artist}>
+                    <img src={artist.images[0].url} alt="Artist Img" ></img>
+                    <p>{index + 1}- {artist.name}</p>
+                  </ArtistCard>
                 </li>
               ))}
             </ul>
@@ -90,12 +89,12 @@ export default function TopSongs(props) {
           <div className="time-frame">
             <h1>Years</h1>
             <ul className="listing">
-              {topL.map((track, index) => (
+              {topL.map((artist, index) => (
                 <li className="list-itens">
-                  <MusicCard track={track}>
-                    <img src={track.album.images[0].url} alt="Artist Img" ></img>
-                    <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
-                  </MusicCard>
+                  <ArtistCard artist={artist}>
+                    <img src={artist.images[0].url} alt="Artist Img" ></img>
+                    <p>{index + 1}- {artist.name}</p>
+                  </ArtistCard>
                 </li>
               ))}
             </ul>

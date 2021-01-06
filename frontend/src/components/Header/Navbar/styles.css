@@ -144,3 +144,10 @@ h1 {
   transform: translateX(110%);
   transition: all var(--speed) ease;
 }
+
+button {
+  background: transparent;
+  padding: 0;
+  border: 0;
+  font-size: 9px;
+}
