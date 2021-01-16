@@ -3,7 +3,7 @@ import { clientId, clientSecret, redirectUri } from '../Keys'
 import { stringify } from 'querystring'
 
 const SpotifyApi = new SpotifyWebApi()
-const scopes = 'user-top-read user-read-private user-read-recently-played user-modify-playback-state user-read-playback-state user-read-recently-played'
+const scopes = 'user-top-read user-read-private user-read-recently-played user-modify-playback-state user-read-playback-state'
 const time = new Date()
 
 async function Login() {

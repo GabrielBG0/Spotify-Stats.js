@@ -7,7 +7,6 @@ import { GoDeviceDesktop } from 'react-icons/go'
 import { RiQuestionLine } from 'react-icons/ri'
 import { GiConsoleController } from 'react-icons/gi'
 import { AiOutlineCar } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
 import './styles.css'
 
 function Navbar(props) {
@@ -20,7 +19,7 @@ function Navbar(props) {
 }
 
 function NavButtonPlay(props) {
-  const [token, setToken] = useState(localStorage.getItem('access_token'))
+  const [token, setToken] = useState()
   const [isPlaying, setIsPlaying] = useState(false)
   const time = new Date()
 
@@ -54,7 +53,8 @@ function NavButtonPlay(props) {
       refreshToken()
       setToken(localStorage.getItem('access_token'))
     }
-    setPlaybackStatus()
+    setTimeout(setPlaybackStatus(), 500)
+
 
   }, [token])
 

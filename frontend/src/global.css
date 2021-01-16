@@ -89,4 +89,5 @@ a {
   flex: 6;
   margin-top: 3vh;
   overflow: scroll;
+  padding: 10px;
 }

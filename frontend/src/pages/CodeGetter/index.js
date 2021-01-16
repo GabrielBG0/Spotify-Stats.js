@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Header from '../../components/Header'
-import LeftMenu from '../LeftMenu'
+import LeftMenu from '../../components/LeftMenu'
 import { clientId, clientSecret, redirectUri } from '../../Keys'
 import { useHistory } from 'react-router-dom'
 import { stringify } from 'querystring'

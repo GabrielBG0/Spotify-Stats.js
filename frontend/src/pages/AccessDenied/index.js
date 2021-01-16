@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../../components/Header'
-import LeftMenu from '../LeftMenu'
+import LeftMenu from '../../components/LeftMenu'
 import './index.css'
 
 

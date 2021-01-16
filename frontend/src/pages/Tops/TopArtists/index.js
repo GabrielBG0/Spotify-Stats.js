@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../../../components/Header'
-import LeftMenu from '../../LeftMenu'
+import LeftMenu from '../../../components/LeftMenu'
 import ArtistCard from '../../../components/ArtistCard'
 import { SpotifyApi, refreshToken } from '../../../services/spotifyApi'
 import '../index.css'

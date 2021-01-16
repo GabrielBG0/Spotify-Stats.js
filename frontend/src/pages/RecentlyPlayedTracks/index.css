@@ -1,0 +1,45 @@
+.RecentlyPlayedTracks {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 5px;
+  height: 100%;
+  width: 100%;
+}
+
+.RecentlyPlayedTracks h1 {
+  color: var(--spot-color);
+}
+
+.RP-listing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+  margin-top: 2vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2vh;
+  list-style: none;
+}
+
+.RP-list-itens {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2vh;
+}
+
+.RP-list-itens p {
+  font-size: large;
+}
+
+.RP-list-itens img {
+  margin-right: 5px;
+  max-height: 100px;
+  max-width: 100px;
+  width: 15vw;
+  height: auto;
+}

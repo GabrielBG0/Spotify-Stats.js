@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../../components/Header'
-import LeftMenu from '../LeftMenu'
+import LeftMenu from '../../components/LeftMenu'
 import { Login, SpotifyApi } from '../../services/spotifyApi'
 import './index.css'
 
@@ -14,7 +14,7 @@ export default function Home(props) {
     useEffect(() => {
         if (localStorage.getItem('access_token')) {
             SpotifyApi.setAccessToken(localStorage.getItem('access_token'))
-            SpotifyApi.getMe({}).then(res => {
+            SpotifyApi.getMe().then(res => {
                 setUserName(res.display_name + ' ')
                 setUserInfoHere(true)
             })

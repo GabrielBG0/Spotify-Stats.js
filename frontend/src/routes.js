@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import CodeGetter from './pages/CodeGetter'
 import AccessDenied from './pages/AccessDenied'
 import RecentlyPlayedTracks from './pages/RecentlyPlayedTracks'
+import Help from './pages/Help'
 
 export default function Routes() {
     return (
@@ -16,7 +17,8 @@ export default function Routes() {
                 <Route path="/topArtists" component={TopArtists} />
                 <Route path='/accessDenied' component={AccessDenied} />
                 <Route path="/topSongs" component={TopSongs} />
-                <Route path='/RecentlyPlayed' component={RecentlyPlayedTracks} />
+                <Route path='/recentlyPlayed' component={RecentlyPlayedTracks} />
+                <Route path='/help' component={Help} />
             </Switch>
         </BrowserRouter>
     )
