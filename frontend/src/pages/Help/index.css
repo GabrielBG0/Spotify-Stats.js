@@ -1,0 +1,19 @@
+.faq {
+  margin-top: 2px;
+  font-size: large;
+}
+
+.faq ul {
+  padding: 3px;
+}
+
+.faq li {
+  padding: 10px;
+  border-radius: var(--border-radius);
+  background-color: var(--bg-nav);
+  margin: 10px;
+}
+
+.faq li h3 {
+  color: var(--spot-color);
+}

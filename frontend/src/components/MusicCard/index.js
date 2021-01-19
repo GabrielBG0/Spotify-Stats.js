@@ -65,7 +65,7 @@ export default function MusicCard(props) {
                     <h3>Album: </h3>{props.track.album.name}
                   </li>
                   <li>
-                    <h3>Popularity: </h3>{props.track.popularity}/100
+                    <h3>Popularity: </h3>{props.track.popularity}
                   </li>
                 </ul>
               </div>
