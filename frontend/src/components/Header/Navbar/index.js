@@ -7,6 +7,7 @@ import { GoDeviceDesktop } from 'react-icons/go'
 import { RiQuestionLine } from 'react-icons/ri'
 import { GiConsoleController } from 'react-icons/gi'
 import { AiOutlineCar } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 import './styles.css'
 
 function Navbar(props) {
@@ -223,10 +224,10 @@ function DropdownMenu(props) {
           {devices && devices.map((device) => (
             <DropdownItem leftIcon={setDeviceIcon(device.type)} goToMenu="main">{device.name}</DropdownItem>
           ))}
-          <DropdownItem leftIcon={<RiQuestionLine height={20} width={20} />}>Didn't find your device?</DropdownItem>
+          <Link to="/help"><DropdownItem leftIcon={<RiQuestionLine height={20} width={20} />}>Didn't find your device?</DropdownItem></Link>
         </div>
       </CSSTransition>
-    </div>
+    </div >
 
   )
 }

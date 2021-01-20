@@ -16,4 +16,5 @@
 
 .faq li h3 {
   color: var(--spot-color);
+  padding: 2px;
 }

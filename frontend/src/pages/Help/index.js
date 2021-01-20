@@ -23,7 +23,7 @@ export default function Help(props) {
               <li>
                 <h3>Why my device isn't showing up?</h3>
                 <p>For a device to show up it need to be active.</p>
-                <p>To activate a device you need to play somethong on that device's Spotify.</p>
+                <p>To activate a device you need to play something on that device's Spotify.</p>
               </li>
             </ul>
           </div>
