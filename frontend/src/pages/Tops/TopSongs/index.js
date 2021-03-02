@@ -49,6 +49,7 @@ export default function TopSongs(props) {
       refreshToken()
     }
     getLists(localStorage.getItem('access_token'))
+    console.log(topM)
 
   }, [])
 
