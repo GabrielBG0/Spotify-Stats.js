@@ -17,3 +17,6 @@ function App() {
 }
 
 export default App;
+
+
+// mim width -> 760

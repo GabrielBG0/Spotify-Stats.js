@@ -91,3 +91,18 @@ a {
   overflow: scroll;
   padding: 10px;
 }
+
+.M-usable-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+
+.M-usable-area h1 {
+  color: var(--spot-color);
+  font-size: 37px;
+}

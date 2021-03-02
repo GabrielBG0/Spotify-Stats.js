@@ -40,6 +40,50 @@
   margin-right: 5px;
   max-height: 100px;
   max-width: 100px;
-  width: 15vw;
+  width: 10vw;
   height: auto;
+}
+
+.M-RP-listing {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2vh;
+}
+
+.M-RP-list-itens {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2vh;
+  margin-left: 7vw;
+}
+
+.M-RP-list-itens p {
+  font-size: large;
+}
+
+.M-RP-list-itens img {
+  margin-right: 5px;
+  max-height: 50px;
+  max-width: 50px;
+  width: 20vw;
+  height: auto;
+}
+
+.M-RP-usable-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.M-RP-usable-area h1 {
+  color: var(--spot-color);
+  font-size: 32px;
 }

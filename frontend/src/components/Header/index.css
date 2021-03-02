@@ -28,3 +28,34 @@
   justify-content: center;
   margin-left: auto;
 }
+
+.M-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.M-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 9;
+}
+
+.M-header-title {
+  margin-left: 10vw;
+  color: white;
+  margin: auto;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 27px;
+  text-align: center;
+}
+
+.M-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--spot-color);
+  flex: 1;
+  font-size: 30px;
+}
