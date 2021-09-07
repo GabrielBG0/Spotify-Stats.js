@@ -42,7 +42,8 @@ export default function ArtistCard(props) {
       <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        className="Modal"
+        overlayClassName="Overlay"
         contentLabel="Music Card"
       >
         <div className="modal-card">
