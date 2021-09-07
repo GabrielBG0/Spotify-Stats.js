@@ -57,7 +57,7 @@ export default function RecentlyPlayedTracks(props) {
       </div>}
       {isSmall && <div>
         <Header />
-        <div className="M-RP-usable-area">
+        <div className="M-usable-area">
           <h1>Recently Played</h1>
           <ul className="M-RP-listing">
             {recentlyPlayed.map((track, index) => (
