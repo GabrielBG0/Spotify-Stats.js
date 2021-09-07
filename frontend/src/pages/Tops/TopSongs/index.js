@@ -109,7 +109,7 @@ export default function TopSongs(props) {
       {isSmall && <div>
         <Header />
         <div className="M-usable-area">
-          <h1>Top Artists</h1>
+          <h1>Top Songs</h1>
           <div className="M-time-frame">
             <h2>1 Month</h2>
             <ul className="M-listing">
