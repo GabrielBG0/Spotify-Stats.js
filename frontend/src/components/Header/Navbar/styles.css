@@ -20,10 +20,6 @@ a {
   color: var(--text-color);
   text-decoration: none;
 }
-h1 {
-  font: var(--text);
-  font-size: 48px;
-}
 
 /* Top Navigation Bar */
 

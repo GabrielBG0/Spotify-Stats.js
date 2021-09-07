@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../../../components/Header'
-import LeftMenu from '../../LeftMenu'
+import LeftMenu from '../../../components/LeftMenu'
 import ArtistCard from '../../../components/ArtistCard'
 import { SpotifyApi, refreshToken } from '../../../services/spotifyApi'
+import { useMediaQuery } from 'react-responsive'
 import '../index.css'
 
 
@@ -11,6 +12,7 @@ export default function TopArtists(props) {
   const [topS, setTopS] = useState([])
   const [topM, setTopM] = useState([])
   const [topL, setTopL] = useState([])
+  const isSmall = useMediaQuery({ query: '(max-width: 760px)' })
   const time = new Date()
 
   const optionsS = {
@@ -53,18 +55,65 @@ export default function TopArtists(props) {
   }, [])
 
   return (
-    <div >
-      <Header />
-      <div className="usable-area">
-        <div className="left-menu">
-          <LeftMenu isHereA={true} />
+    <>
+      {!isSmall && <div >
+        <Header />
+        <div className="usable-area">
+          <div className="left-menu">
+            <LeftMenu isHereA={true} />
+          </div>
+          <div className="content">
+            <div className="time-frame">
+              <h1>1 Month</h1>
+              <ul className="listing">
+                {topS.map((artist, index) => (
+                  <li className="list-itens">
+                    <ArtistCard artist={artist}>
+                      <img src={artist.images[0].url} alt="Artist Img" ></img>
+                      <p>{index + 1}- {artist.name}</p>
+                    </ArtistCard>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="time-frame">
+              <h1>6 Months</h1>
+              <ul className="listing">
+                {topM.map((artist, index) => (
+                  <li className="list-itens">
+                    <ArtistCard artist={artist}>
+                      <img src={artist.images[0].url} alt="Artist Img" ></img>
+                      <p>{index + 1}- {artist.name}</p>
+                    </ArtistCard>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="time-frame">
+              <h1>Years</h1>
+              <ul className="listing">
+                {topS.map((artist, index) => (
+                  <li className="list-itens">
+                    <ArtistCard artist={artist}>
+                      <img src={artist.images[0].url} alt="Artist Img" ></img>
+                      <p>{index + 1}- {artist.name}</p>
+                    </ArtistCard>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
-        <div className="content">
-          <div className="time-frame">
-            <h1>1 Month</h1>
-            <ul className="listing">
+      </div>}
+      {isSmall && <div>
+        <Header />
+        <div className="M-usable-area">
+          <h1>Top Artists</h1>
+          <div className="M-time-frame">
+            <h2>1 Month</h2>
+            <ul className="M-listing">
               {topS.map((artist, index) => (
-                <li className="list-itens">
+                <li className="M-list-itens">
                   <ArtistCard artist={artist}>
                     <img src={artist.images[0].url} alt="Artist Img" ></img>
                     <p>{index + 1}- {artist.name}</p>
@@ -73,9 +122,9 @@ export default function TopArtists(props) {
               ))}
             </ul>
           </div>
-          <div className="time-frame">
-            <h1>6 Months</h1>
-            <ul className="listing">
+          <div className="M-time-frame">
+            <h2>6 Months</h2>
+            <ul className="M-listing">
               {topM.map((artist, index) => (
                 <li className="list-itens">
                   <ArtistCard artist={artist}>
@@ -86,10 +135,10 @@ export default function TopArtists(props) {
               ))}
             </ul>
           </div>
-          <div className="time-frame">
-            <h1>Years</h1>
-            <ul className="listing">
-              {topL.map((artist, index) => (
+          <div className="M-time-frame">
+            <h2>Years</h2>
+            <ul className="M-listing">
+              {topS.map((artist, index) => (
                 <li className="list-itens">
                   <ArtistCard artist={artist}>
                     <img src={artist.images[0].url} alt="Artist Img" ></img>
@@ -100,7 +149,7 @@ export default function TopArtists(props) {
             </ul>
           </div>
         </div>
-      </div>
-    </div>
+      </div>}
+    </>
   )
 }

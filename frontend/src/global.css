@@ -89,4 +89,22 @@ a {
   flex: 6;
   margin-top: 3vh;
   overflow: scroll;
+  padding: 10px;
+}
+
+.M-usable-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.M-usable-area h1 {
+  color: var(--spot-color);
+  font-size: 37px;
 }

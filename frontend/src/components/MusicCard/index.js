@@ -7,25 +7,6 @@ Modal.setAppElement('#root')
 export default function MusicCard(props) {
   const [isOpen, setIsOpen] = useState(false)
 
-  const customStyles = {
-    overlay: {
-      backgroundColor: 'rgba(120, 120, 120, 0.75)'
-    },
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-      borderRadius: '4px',
-      outline: 'none',
-      padding: '20px',
-      background: 'var(--bg)',
-      border: 'none',
-    }
-  }
-
   function openModal() {
     setIsOpen(true)
   }
@@ -42,7 +23,8 @@ export default function MusicCard(props) {
       <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        className="Modal"
+        overlayClassName="Overlay"
         contentLabel="Music Card"
       >
         <div className="modal-card">
@@ -65,7 +47,7 @@ export default function MusicCard(props) {
                     <h3>Album: </h3>{props.track.album.name}
                   </li>
                   <li>
-                    <h3>Popularity: </h3>{props.track.popularity}/100
+                    <h3>Popularity: </h3>{props.track.popularity}
                   </li>
                 </ul>
               </div>

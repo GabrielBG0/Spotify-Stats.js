@@ -20,7 +20,7 @@ function Navbar(props) {
 }
 
 function NavButtonPlay(props) {
-  const [token, setToken] = useState(localStorage.getItem('access_token'))
+  const [token, setToken] = useState()
   const [isPlaying, setIsPlaying] = useState(false)
   const time = new Date()
 
@@ -54,7 +54,8 @@ function NavButtonPlay(props) {
       refreshToken()
       setToken(localStorage.getItem('access_token'))
     }
-    setPlaybackStatus()
+    setTimeout(setPlaybackStatus(), 500)
+
 
   }, [token])
 
@@ -223,10 +224,10 @@ function DropdownMenu(props) {
           {devices && devices.map((device) => (
             <DropdownItem leftIcon={setDeviceIcon(device.type)} goToMenu="main">{device.name}</DropdownItem>
           ))}
-          <DropdownItem leftIcon={<RiQuestionLine height={20} width={20} />}>Didn't find your device?</DropdownItem>
+          <Link to="/help"><DropdownItem leftIcon={<RiQuestionLine height={20} width={20} />}>Didn't find your device?</DropdownItem></Link>
         </div>
       </CSSTransition>
-    </div>
+    </div >
 
   )
 }

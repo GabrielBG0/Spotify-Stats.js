@@ -42,7 +42,8 @@ export default function ArtistCard(props) {
       <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        className="Modal"
+        overlayClassName="Overlay"
         contentLabel="Music Card"
       >
         <div className="modal-card">
@@ -65,7 +66,7 @@ export default function ArtistCard(props) {
                     <h3>Followers: </h3>{props.artist.followers.total.toLocaleString('en-US')}
                   </li>
                   <li>
-                    <h3>Popularity: </h3>{props.artist.popularity}/100
+                    <h3>Popularity: </h3>{props.artist.popularity}
                   </li>
                 </ul>
               </div>

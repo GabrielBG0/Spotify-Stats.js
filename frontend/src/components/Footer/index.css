@@ -41,3 +41,21 @@
   width: 42px;
   height: 42px;
 }
+
+.M-footer {
+  display: flex;
+  height: var(--nav-size);
+  width: 100%;
+  background-color: var(--bg-nav);
+  padding: 0 1rem;
+  border-top: var(--border);
+  position: relative;
+  bottom: 0;
+}
+
+.M-footer-msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}

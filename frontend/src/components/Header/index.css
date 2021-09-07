@@ -28,3 +28,102 @@
   justify-content: center;
   margin-left: auto;
 }
+
+.M-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.M-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.M-header-title {
+  color: white;
+  margin: auto;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 27px;
+  text-align: center;
+}
+
+.M-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--spot-color);
+  flex: 1;
+  font-size: 30px;
+}
+
+.M-leftMenu-Active {
+  background-color: var(--bg-nav);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 350ms;
+}
+
+.M-leftMenu {
+  background-color: var(--bg-nav);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+}
+
+.M-Menu-Itens {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-content: space-around;
+  padding: 10px;
+}
+
+.M-Menu-Close {
+  height: 50px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.5rem;
+  font-size: 40px;
+  border-radius: var(--border-radius);
+  transition: background var(--speed);
+  color: white;
+}
+
+.M-left-menu-item {
+  height: 50px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+  margin: 5px;
+  font-size: 30px;
+  border-radius: var(--border-radius);
+  transition: background var(--speed);
+}
+
+.left-menu-item:hover {
+  background-color: var(--bg-nav);
+}
+
+.M-icon {
+  padding: 5px;
+  font-size: 40px;
+}
