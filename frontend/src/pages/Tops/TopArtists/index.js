@@ -92,7 +92,7 @@ export default function TopArtists(props) {
             <div className="time-frame">
               <h1>Years</h1>
               <ul className="listing">
-                {topS.map((artist, index) => (
+                {topL.map((artist, index) => (
                   <li className="list-itens">
                     <ArtistCard artist={artist}>
                       <img src={artist.images[0].url} alt="Artist Img" ></img>
@@ -138,7 +138,7 @@ export default function TopArtists(props) {
           <div className="M-time-frame">
             <h2>Years</h2>
             <ul className="M-listing">
-              {topS.map((artist, index) => (
+              {topL.map((artist, index) => (
                 <li className="list-itens">
                   <ArtistCard artist={artist}>
                     <img src={artist.images[0].url} alt="Artist Img" ></img>
