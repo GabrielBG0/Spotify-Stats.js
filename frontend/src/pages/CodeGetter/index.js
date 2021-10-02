@@ -63,7 +63,7 @@ export default function TopArtists(props) {
           <div className="left-menu">
             <LeftMenu />
           </div>
-          <div className="home">
+          <div className="home-cg">
             <h1>Loding...</h1>
             <p>Preparing Content</p>
           </div>
@@ -71,7 +71,7 @@ export default function TopArtists(props) {
       </div>}
       {isSmall && <div>
         <div className="M-usable-area">
-          <div className="home">
+          <div className="M-home-cg">
             <h1>Loding...</h1>
             <p>Preparing Content</p>
           </div>

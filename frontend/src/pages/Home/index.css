@@ -3,10 +3,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   flex: 6;
-  margin-top: 3vh;
+  padding-top: 3vh;
+  border-left: var(--border);
 }
 
 .home h1 {
@@ -39,4 +40,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.M-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  width: 100%;
+  flex: 6;
+  padding-top: 3vh;
 }

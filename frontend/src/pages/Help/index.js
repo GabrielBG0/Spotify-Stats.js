@@ -37,7 +37,7 @@ export default function Help(props) {
       {isSmall && <div>
         <Header />
         <div className="M-usable-area">
-          <div className="home">
+          <div className="M-home">
             <h1>FAQ</h1>
             <div className="faq">
               <ul>
