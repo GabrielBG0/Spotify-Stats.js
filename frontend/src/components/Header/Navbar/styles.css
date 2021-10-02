@@ -1,7 +1,7 @@
 body {
   margin: 0;
   background: #151616;
-  font-family: roboto;
+  font-family: roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -133,8 +133,6 @@ a {
 .menu-secondary-enter-active {
   transform: translateX(0%);
   transition: all var(--speed) ease;
-}
-.menu-secondary-exit {
 }
 .menu-secondary-exit-active {
   transform: translateX(110%);

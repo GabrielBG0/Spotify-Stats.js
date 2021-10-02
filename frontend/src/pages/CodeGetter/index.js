@@ -52,8 +52,7 @@ export default function TopArtists(props) {
   function stractCode(string) {
     const url = string.split('?').pop()
     const response = url.split('&')
-    const code = response[0].split('=').pop()
-    return code
+    return response[0].split('=').pop()
 
   }
   return (

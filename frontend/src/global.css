@@ -36,6 +36,7 @@ p {
   background: var(--spot-color);
   border-radius: 5px;
   transition: 300ms;
+  scroll-margin-bottom: 0px;
 }
 
 body {
@@ -62,20 +63,22 @@ a {
 .page-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100%;
+  overflow: scroll;
+  padding-bottom: 0;
 }
 
 .content-wrap {
   flex: 1;
+  height: 100%;
 }
 
 .usable-area {
   display: flex;
-  height: 100vh;
+  height: 100%;
 }
 
 .left-menu {
-  border-right: var(--border);
   height: 100%;
   flex: 1;
 }
@@ -87,9 +90,9 @@ a {
   height: 100%;
   width: 100%;
   flex: 6;
-  margin-top: 3vh;
-  overflow: scroll;
   padding: 10px;
+  padding-top: 3vh;
+  border-left: var(--border);
 }
 
 .M-usable-area {
