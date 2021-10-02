@@ -6,8 +6,6 @@
   align-items: center;
   justify-content: flex-start;
   margin-left: 5px;
-  height: 100%;
-  width: 100%;
 }
 
 .RecentlyPlayedTracks h1 {
@@ -22,7 +20,6 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2vh;
-  list-style: none;
 }
 
 .RP-list-itens {

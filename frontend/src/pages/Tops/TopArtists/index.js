@@ -16,19 +16,19 @@ export default function TopArtists(props) {
   const time = new Date()
 
   const optionsS = {
-    limit: 15,
+    limit: 20,
     offset: 0,
     time_range: 'short_term'
   }
 
   const optionsM = {
-    limit: 15,
+    limit: 20,
     offset: 0,
     time_range: 'medium_term'
   }
 
   const optionsL = {
-    limit: 15,
+    limit: 20,
     offset: 0,
     time_range: 'long_term'
   }

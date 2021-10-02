@@ -19,7 +19,7 @@ function Navbar(props) {
   )
 }
 
-function NavButtonPlay(props) {
+function NavButtonPlay() {
   const [token, setToken] = useState()
   const [isPlaying, setIsPlaying] = useState(false)
   const time = new Date()

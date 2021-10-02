@@ -6,23 +6,23 @@ export default function Footer(props) {
   const isSmall = useMediaQuery({ query: '(max-width: 760px)' })
   return (
     <>
-      {!isSmall && <div className="footer">
+      {!isSmall && <footer className="footer">
         <div className="left-msg">
           <p>Made with care by <a rel="noopener noreferrer" href="https://github.com/GabrielBG0" target="_blank"><u>GBG</u></a></p>
         </div>
         <div className="right-msg">
-          <div>
+          <div className="right-msg">
             <p>Powered by the Spotify Web API</p>
             <p>Click <a rel="noopener noreferrer" href="https://developer.spotify.com/documentation/web-api/reference/" target="_blank"><u>Here</u></a> to know more</p>
           </div>
           <a rel="noopener noreferrer" href="https://www.spotify.com/" target="_blank"><img src={SpotifyIcon} alt="Spotify Logo"></img></a>
         </div>
-      </div>}
-      {isSmall && <div className="M-footer">
+      </footer>}
+      {isSmall && <footer className="M-footer">
         <div className="M-footer-msg">
           <p>Made with care by <a rel="noopener noreferrer" href="https://github.com/GabrielBG0" target="_blank"><u>GBG</u></a></p>
         </div>
-      </div>}
+      </footer>}
     </>
   )
 }
