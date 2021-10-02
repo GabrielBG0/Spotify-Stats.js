@@ -45,6 +45,27 @@ export default function TopSongs(props) {
       setTopL(res.items)
     })
   }
+  function mountList(track, index) {
+    return (
+      <li className="list-itens">
+        <MusicCard track={track}>
+          <img src={track.album.images[0].url} alt="Artist Img" ></img>
+          <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
+        </MusicCard>
+      </li>
+    )
+  }
+
+  function mountListMobile(track, index) {
+    return (
+      <li className="list-itens">
+        <MusicCard track={track}>
+          <img src={track.album.images[0].url} alt="Artist Img" ></img>
+          <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
+        </MusicCard>
+      </li>
+    )
+  }
 
   useEffect(() => {
     if (localStorage.getItem('token_time') + localStorage.getItem('expires_in') < time.getHours() / 1000) {
@@ -67,40 +88,19 @@ export default function TopSongs(props) {
             <div className="time-frame">
               <h1>1 Month</h1>
               <ul className="listing">
-                {topS.map((track, index) => (
-                  <li className="list-itens">
-                    <MusicCard track={track}>
-                      <img src={track.album.images[0].url} alt="Artist Img" ></img>
-                      <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
-                    </MusicCard>
-                  </li>
-                ))}
+                {topS.map((artist, index) => mountList(artist, index))}
               </ul>
             </div>
             <div className="time-frame">
               <h1>6 Months</h1>
               <ul className="listing">
-                {topM.map((track, index) => (
-                  <li className="list-itens">
-                    <MusicCard track={track}>
-                      <img src={track.album.images[0].url} alt="Artist Img" ></img>
-                      <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
-                    </MusicCard>
-                  </li>
-                ))}
+                {topM.map((artist, index) => mountList(artist, index))}
               </ul>
             </div>
             <div className="time-frame">
               <h1>Years</h1>
               <ul className="listing">
-                {topL.map((track, index) => (
-                  <li className="list-itens">
-                    <MusicCard track={track}>
-                      <img src={track.album.images[0].url} alt="Artist Img" ></img>
-                      <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
-                    </MusicCard>
-                  </li>
-                ))}
+                {topL.map((artist, index) => mountList(artist, index))}
               </ul>
             </div>
           </div>
@@ -113,40 +113,19 @@ export default function TopSongs(props) {
           <div className="M-time-frame">
             <h2>1 Month</h2>
             <ul className="M-listing">
-              {topS.map((track, index) => (
-                <li className="list-itens">
-                  <MusicCard track={track}>
-                    <img src={track.album.images[0].url} alt="Artist Img" ></img>
-                    <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
-                  </MusicCard>
-                </li>
-              ))}
+              {topS.map((artist, index) => mountListMobile(artist, index))}
             </ul>
           </div>
           <div className="M-time-frame">
             <h2>6 Months</h2>
             <ul className="M-listing">
-              {topM.map((track, index) => (
-                <li className="list-itens">
-                  <MusicCard track={track}>
-                    <img src={track.album.images[0].url} alt="Artist Img" ></img>
-                    <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
-                  </MusicCard>
-                </li>
-              ))}
+              {topM.map((artist, index) => mountListMobile(artist, index))}
             </ul>
           </div>
           <div className="M-time-frame">
             <h2>Years</h2>
             <ul className="M-listing">
-              {topL.map((track, index) => (
-                <li className="list-itens">
-                  <MusicCard track={track}>
-                    <img src={track.album.images[0].url} alt="Artist Img" ></img>
-                    <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
-                  </MusicCard>
-                </li>
-              ))}
+              {topL.map((artist, index) => mountListMobile(artist, index))}
             </ul>
           </div>
         </div>
