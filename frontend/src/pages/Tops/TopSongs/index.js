@@ -58,7 +58,7 @@ export default function TopSongs(props) {
 
   function mountListMobile(track, index) {
     return (
-      <li className="list-itens">
+      <li className="M-list-itens">
         <MusicCard track={track}>
           <img src={track.album.images[0].url} alt="Artist Img" ></img>
           <p>{index + 1}- {track.name} from {track.artists[0].name}</p>
