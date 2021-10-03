@@ -1,6 +1,7 @@
 import React from 'react'
 import SpotifyIcon from '../../assets/spotify-icons-logos/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_Green.png'
 import { useMediaQuery } from 'react-responsive'
+import { BsFillSuitHeartFill } from 'react-icons/bs'
 import './index.css'
 export default function Footer(props) {
   const isSmall = useMediaQuery({ query: '(max-width: 760px)' })
@@ -8,7 +9,7 @@ export default function Footer(props) {
     <>
       {!isSmall && <footer className="footer">
         <div className="left-msg">
-          <p>Made with care by <a rel="noopener noreferrer" href="https://github.com/GabrielBG0" target="_blank"><u>GBG</u></a></p>
+          <p>Made with <BsFillSuitHeartFill color='#e31b23' /> by <a rel="noopener noreferrer" href="https://github.com/GabrielBG0" target="_blank"><u>GBG</u></a></p>
         </div>
         <div className="right-msg">
           <div className="right-msg">
@@ -20,7 +21,7 @@ export default function Footer(props) {
       </footer>}
       {isSmall && <footer className="M-footer">
         <div className="M-footer-msg">
-          <p>Made with care by <a rel="noopener noreferrer" href="https://github.com/GabrielBG0" target="_blank"><u>GBG</u></a></p>
+          <p>Made with <BsFillSuitHeartFill color='#e31b23' /> by <a rel="noopener noreferrer" href="https://github.com/GabrielBG0" target="_blank"><u>GBG</u></a></p>
         </div>
       </footer>}
     </>
