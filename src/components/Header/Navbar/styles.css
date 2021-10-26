@@ -21,6 +21,11 @@ a {
   text-decoration: none;
 }
 
+nav {
+  position: static;
+  top: 0;
+}
+
 /* Top Navigation Bar */
 
 /* <nav> */
