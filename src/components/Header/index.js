@@ -15,7 +15,7 @@ export default function Header() {
 
 
   return (
-    <>
+    <header>
       {!isSmall && <div>
         <Navbar className="header">
           <div className="title-and-search">
@@ -75,7 +75,7 @@ export default function Header() {
           </div>
         </Navbar>
       </div>}
-    </>
+    </header>
   )
 }
 
