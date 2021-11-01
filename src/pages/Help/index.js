@@ -44,7 +44,7 @@ export default function Help(props) {
                 <li>
                   <h3>How Popularity Works?</h3>
                   <p>The popularity statistic is calculate by the spotify algorithm.</p>
-                  <p>It can be any value between 0 and 100 and the bigger it is the popular the song or artist is.</p>
+                  <p>It can be any value between 0 and 10 and the bigger it is the popular the song or artist is.</p>
                 </li>
               </ul>
             </div>
