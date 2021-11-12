@@ -40,6 +40,10 @@ p {
   transition: 300ms;
 }
 
+::-webkit-scrollbar-thumb:hover {
+  background: #189945;
+}
+
 body {
   font: 400 14px Roboto, sans-serif;
   background: var(--bg);
