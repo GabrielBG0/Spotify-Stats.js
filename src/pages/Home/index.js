@@ -51,8 +51,8 @@ export default function Home(props) {
             <h1>Home</h1>
             <p>Welcome {userInfoHere && userName}to the Spotify Stats Home page</p>
             {!userInfoHere &&
-              <div className="text">
-                <p>For prociding with authrization click on the Login button</p>
+              <div className="M-text">
+                <p>For prociding with authrization click on Login</p>
                 <button onClick={login}>Login</button>
               </div>}
           </div>
