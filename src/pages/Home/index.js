@@ -49,7 +49,7 @@ export default function Home(props) {
         <div className="M-usable-area">
           <div className="M-home">
             <h1>Home</h1>
-            <p>Welcome {userInfoHere && userName}to the Spotify Stats Home page</p>
+            <p>Welcome {userInfoHere && userName}to Spotify Stats</p>
             {!userInfoHere &&
               <div className="M-text">
                 <p>For prociding with authrization click on Login</p>
