@@ -44,7 +44,6 @@ export default function RecentlyPlayedTracks(props) {
                 {recentlyPlayed.map((track, index) => (
                   <li className="RP-list-itens">
                     <MusicCard track={track.track}>
-                      {console.log(track)}
                       <img src={track.track.album.images[0].url} alt="Album Cover"></img>
                       <p>{index + 1}- {track.track.name} from {track.track.artists[0].name}</p>
                     </MusicCard>
