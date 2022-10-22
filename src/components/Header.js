@@ -8,13 +8,13 @@ export default function Header() {
       <div className={styles.title}>
         <h1>Spotify Stats</h1>
       </div>
-      <div>
+      <div className={styles.menu}>
         <span>Home</span>
         <span>Top Artists</span>
         <span>Top Songs</span>
         <span>Recent Tracks</span>
         <span>
-          <FiUser />
+          <FiUser size={30} />
         </span>
       </div>
     </header>

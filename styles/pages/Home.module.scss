@@ -1,0 +1,151 @@
+@import "../variables.sass";
+
+.container {
+  width: 100vw;
+  height: 100%;
+
+  .hero {
+    width: 100%;
+    height: 75vh;
+    padding: 60px 50px;
+    background-color: $background-dark;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10vh;
+
+    .info {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2em;
+      text-align: center;
+      font-size: 1.5rem;
+
+      .heroText {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+        font-size: 2rem;
+        span {
+          color: $font-accent;
+        }
+      }
+
+      .heroCarrocel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4vw;
+
+        img {
+          border-radius: 10px;
+        }
+      }
+    }
+
+    .login {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      line-height: 20px;
+      font-family: $font-stack;
+      font-size: 2.2rem;
+      font-weight: 600;
+      padding: 1.5rem 2.5rem;
+      color: black;
+      background: $font-accent;
+      border-radius: 5px;
+      border: 0;
+    }
+  }
+
+  .topSongs {
+    width: 100%;
+    height: 75vh;
+    padding: 60px 50px;
+    background-color: $background-mediun;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3vw;
+    padding: 15px 0;
+
+    .topSongsImage {
+      transform: rotate(16.97deg);
+      box-shadow: 19px 19px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      margin-bottom: 15px;
+      img {
+        border-radius: 10px;
+      }
+    }
+
+    .topSongsArrow {
+      margin-top: 100px;
+    }
+
+    .topSongsText {
+      width: 100%;
+      max-width: 400px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 2rem;
+
+      span {
+        color: $font-accent;
+      }
+    }
+  }
+
+  .topArtists {
+    width: 100%;
+    height: 75vh;
+    padding: 60px 50px;
+    background-color: $background-light;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 3vw;
+    padding: 15px 0;
+
+    .topArtistsImage {
+      transform: rotate(-16.97deg);
+      box-shadow: -19px 19px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      margin-bottom: 15px;
+      img {
+        border-radius: 10px;
+      }
+    }
+
+    .topArtistsArrow {
+      margin-top: 80px;
+    }
+
+    .topArtistsText {
+      width: 100%;
+      max-width: 400px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 2rem;
+
+      span {
+        color: $font-accent;
+      }
+    }
+  }
+}
