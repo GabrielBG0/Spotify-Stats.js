@@ -4,6 +4,7 @@ import styles from "../styles/pages/Home.module.scss";
 import coverArt from "../public/coverArt.jpeg";
 import arrowRight from "../public/arrowRight.svg";
 import arrowLeft from "../public/arrowLeft.svg";
+import clock from "../public/clock.svg";
 
 export default function Home() {
   return (
@@ -52,7 +53,8 @@ export default function Home() {
       <div className={styles.topArtists}>
         <div className={styles.topArtistsText}>
           <h1>
-            Meet your
+            {" "}
+            block; Meet your
             <br />
             <span>Top Artists</span>
           </h1>
@@ -65,7 +67,20 @@ export default function Home() {
           <Image src={coverArt} alt="cover art" height={400} width={400} />
         </div>
       </div>
-      <div>Recent tracks</div>
+      <div className={styles.recentTracks}>
+        <div className={styles.recentTracksBG}>
+          <Image className={styles.clock1} src={clock} alt="clock" />
+          <Image className={styles.clock2} src={clock} alt="clock" />
+          <Image className={styles.clock3} src={clock} alt="clock" />
+        </div>
+        <div className={styles.recentTracksTxt}>
+          <h1>
+            See your
+            <br />
+            <span>Recent Tracks</span>
+          </h1>
+        </div>
+      </div>
     </div>
   );
 }

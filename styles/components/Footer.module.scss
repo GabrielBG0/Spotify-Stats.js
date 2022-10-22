@@ -1,0 +1,25 @@
+.footer {
+  min-height: 70px;
+  width: 100%;
+  padding: 1em 3em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #1b1b1b;
+  font-size: 1.1rem;
+
+  .rightMsg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .rightMsgTxt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-right: 21px;
+    }
+  }
+}
