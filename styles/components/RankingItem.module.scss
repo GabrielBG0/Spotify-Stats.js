@@ -1,0 +1,30 @@
+@import "../variables.scss";
+
+$gold: #fcdb66;
+$silver: #afb8c0;
+$bronze: #c59455;
+$default: #212121;
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 15px 25px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+
+  .rank {
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+
+  .image {
+    span {
+      display: block !important;
+      min-width: 50px;
+    }
+  }
+}

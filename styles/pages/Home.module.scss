@@ -1,201 +1,196 @@
-@import "../variables.sass";
+@import "../variables.scss";
 
-.container {
-  width: 100vw;
-  height: 100%;
+.hero {
+  width: 100%;
+  height: 75vh;
+  padding: 60px 50px;
+  background-color: $background-dark;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10vh;
 
-  .hero {
+  .info {
     width: 100%;
-    height: 75vh;
-    padding: 60px 50px;
-    background-color: $background-dark;
+    height: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 10vh;
+    gap: 1.2em;
+    text-align: center;
+    font-size: 1.5rem;
 
-    .info {
-      width: 100%;
+    .heroText {
       height: 100%;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.2em;
-      text-align: center;
-      font-size: 1.5rem;
-
-      .heroText {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1em;
-        font-size: 2rem;
-        span {
-          color: $font-accent;
-        }
-      }
-
-      .heroCarrocel {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 4vw;
-
-        img {
-          border-radius: 10px;
-        }
-      }
-    }
-
-    .login {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      line-height: 20px;
-      font-family: $font-stack;
-      font-size: 2.2rem;
-      font-weight: 600;
-      padding: 1.5rem 2.5rem;
-      color: black;
-      background: $font-accent;
-      border-radius: 5px;
-      border: 0;
-    }
-  }
-
-  .topSongs {
-    width: 100%;
-    height: 75vh;
-    padding: 60px 0;
-    background-color: $background-mediun;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 3vw;
-
-    .topSongsImage {
-      transform: rotate(16.97deg);
-      box-shadow: 19px 19px rgba(0, 0, 0, 0.25);
-      border-radius: 10px;
-      margin-bottom: 15px;
-
-      span {
-        display: block !important;
-      }
-      img {
-        border-radius: 10px;
-      }
-    }
-
-    .topSongsArrow {
-      margin-top: 100px;
-    }
-
-    .topSongsText {
-      width: 100%;
-      max-width: 400px;
-      height: 100%;
-      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      gap: 1em;
       font-size: 2rem;
-
       span {
         color: $font-accent;
       }
     }
-  }
 
-  .topArtists {
-    width: 100%;
-    height: 75vh;
-    padding: 60px 0;
-    background-color: $background-light;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 3vw;
+    .heroCarrocel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4vw;
 
-    .topArtistsImage {
-      transform: rotate(-16.97deg);
-      box-shadow: -19px 19px rgba(0, 0, 0, 0.25);
-      border-radius: 10px;
-      margin-bottom: 15px;
-
-      span {
-        display: block !important;
-      }
       img {
         border-radius: 10px;
       }
     }
+  }
 
-    .topArtistsArrow {
-      margin-top: 80px;
+  .login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    line-height: 20px;
+    font-family: $font-stack;
+    font-size: 2.2rem;
+    font-weight: 600;
+    padding: 1.5rem 2.5rem;
+    color: black;
+    background: $font-accent;
+    border-radius: 5px;
+    border: 0;
+  }
+}
+
+.topSongs {
+  width: 100%;
+  height: 75vh;
+  padding: 60px 0;
+  background-color: $background-mediun;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3vw;
+
+  .topSongsImage {
+    transform: rotate(16.97deg);
+    box-shadow: 19px 19px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-bottom: 15px;
+
+    span {
+      display: block !important;
     }
-
-    .topArtistsText {
-      width: 100%;
-      max-width: 400px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 2rem;
-
-      span {
-        color: $font-accent;
-      }
+    img {
+      border-radius: 10px;
     }
   }
 
-  .recentTracks {
+  .topSongsArrow {
+    margin-top: 100px;
+  }
+
+  .topSongsText {
     width: 100%;
-    height: 75vh;
-    padding: 60px 50px;
-    position: relative;
+    max-width: 400px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem;
 
-    .recentTracksBG,
-    .recentTracksTxt {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 100px;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      text-align: center;
-      font-size: 2rem;
-    }
-
-    .recentTracksBG {
-      -webkit-filter: blur(6px);
-      -moz-filter: blur(6px);
-      -o-filter: blur(6px);
-      -ms-filter: blur(6px);
-      filter: blur(6px);
-    }
-
-    .recentTracksTxt span {
+    span {
       color: $font-accent;
     }
+  }
+}
 
-    .clock1 {
-      transform: rotate(15.57deg);
+.topArtists {
+  width: 100%;
+  height: 75vh;
+  padding: 60px 0;
+  background-color: $background-light;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3vw;
+
+  .topArtistsImage {
+    transform: rotate(-16.97deg);
+    box-shadow: -19px 19px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-bottom: 15px;
+
+    span {
+      display: block !important;
     }
-    .clock2 {
-      transform: rotate(-44.31deg);
+    img {
+      border-radius: 10px;
     }
-    .clock3 {
-      transform: rotate(-152.48deg);
+  }
+
+  .topArtistsArrow {
+    margin-top: 80px;
+  }
+
+  .topArtistsText {
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem;
+
+    span {
+      color: $font-accent;
     }
+  }
+}
+
+.recentTracks {
+  width: 100%;
+  height: 75vh;
+  padding: 60px 50px;
+  position: relative;
+
+  .recentTracksBG,
+  .recentTracksTxt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .recentTracksBG {
+    -webkit-filter: blur(6px);
+    -moz-filter: blur(6px);
+    -o-filter: blur(6px);
+    -ms-filter: blur(6px);
+    filter: blur(6px);
+  }
+
+  .recentTracksTxt span {
+    color: $font-accent;
+  }
+
+  .clock1 {
+    transform: rotate(15.57deg);
+  }
+  .clock2 {
+    transform: rotate(-44.31deg);
+  }
+  .clock3 {
+    transform: rotate(-152.48deg);
   }
 }

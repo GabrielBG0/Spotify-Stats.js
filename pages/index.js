@@ -1,12 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/pages/Home.module.scss";
-import coverArt from "../public/coverArt.jpeg";
 import arrowRight from "../public/arrowRight.svg";
 import arrowLeft from "../public/arrowLeft.svg";
 import clock from "../public/clock.svg";
 
-export default function Home() {
+export default function Home({ data }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -27,17 +26,42 @@ export default function Home() {
             </p>
           </div>
           <div className={styles.heroCarrocel}>
-            <Image src={coverArt} alt="cover art" height={200} width={200} />
-            <Image src={coverArt} alt="cover art" height={200} width={200} />
-            <Image src={coverArt} alt="cover art" height={200} width={200} />
-            <Image src={coverArt} alt="cover art" height={200} width={200} />
+            <Image
+              src="https://i.scdn.co/image/ab67616d00001e0294e71ca5acea8203c4aa120c"
+              alt="cover art"
+              height={200}
+              width={200}
+            />
+            <Image
+              src="https://i.scdn.co/image/ab67616d00001e02ef24c3fdbf856340d55cfeb2"
+              alt="cover art"
+              height={200}
+              width={200}
+            />
+            <Image
+              src="https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36"
+              alt="cover art"
+              height={200}
+              width={200}
+            />
+            <Image
+              src="https://i.scdn.co/image/ab67616d00001e0208596cc28b9f5b00bfe08ae7"
+              alt="cover art"
+              height={200}
+              width={200}
+            />
           </div>
         </div>
         <button className={styles.login}>Login with Spotify</button>
       </div>
       <div className={styles.topSongs}>
         <div className={styles.topSongsImage}>
-          <Image src={coverArt} alt="cover art" height={400} width={400} />
+          <Image
+            src="https://i.scdn.co/image/ab67616d0000b2732b1a62237771427afb899387"
+            alt="cover art"
+            height={400}
+            width={400}
+          />
         </div>
         <div className={styles.topSongsArrow}>
           <Image src={arrowRight} alt="cover art" height={400} width={400} />
@@ -53,8 +77,7 @@ export default function Home() {
       <div className={styles.topArtists}>
         <div className={styles.topArtistsText}>
           <h1>
-            {" "}
-            block; Meet your
+            Meet your
             <br />
             <span>Top Artists</span>
           </h1>
@@ -64,7 +87,12 @@ export default function Home() {
         </div>
 
         <div className={styles.topArtistsImage}>
-          <Image src={coverArt} alt="cover art" height={400} width={400} />
+          <Image
+            src="https://i.scdn.co/image/ab6761610000e5eb006ff3c0136a71bfb9928d34"
+            alt="cover art"
+            height={400}
+            width={400}
+          />
         </div>
       </div>
       <div className={styles.recentTracks}>
@@ -83,8 +111,4 @@ export default function Home() {
       </div>
     </div>
   );
-}
-
-export async function getServerSideProps() {
-  return { props: {} };
 }

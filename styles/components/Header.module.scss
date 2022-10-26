@@ -1,4 +1,4 @@
-@import "../variables.sass";
+@import "../variables.scss";
 
 .header {
   height: 70px;
@@ -13,6 +13,7 @@
   .title {
     color: $font-accent;
     font-size: 1.2rem;
+    cursor: pointer;
   }
 
   .menu {

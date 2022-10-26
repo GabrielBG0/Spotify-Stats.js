@@ -1,18 +1,21 @@
 import react from "react";
 import { FiUser } from "react-icons/fi";
+import Link from "next/link";
 import styles from "../../styles/components/Header.module.scss";
 
 export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.title}>
-        <h1>Spotify Stats</h1>
+        <Link href="/">
+          <h1>Spotify Stats</h1>
+        </Link>
       </div>
       <div className={styles.menu}>
-        <span>Home</span>
-        <span>Top Artists</span>
-        <span>Top Songs</span>
-        <span>Recent Tracks</span>
+        <Link href="/">Home</Link>
+        <Link href="/TopArtists">Top Artists</Link>
+        <Link href="/TopSongs">Top Songs</Link>
+        <Link href="/RecentTracks">Recent Tracks</Link>
         <span>
           <FiUser size={30} />
         </span>
