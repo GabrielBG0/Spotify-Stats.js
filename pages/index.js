@@ -4,8 +4,10 @@ import styles from "../styles/pages/Home.module.scss";
 import arrowRight from "../public/arrowRight.svg";
 import arrowLeft from "../public/arrowLeft.svg";
 import clock from "../public/clock.svg";
+import { login, SpotifyApi } from "../src/services/spotify";
+import nookies from "nookies";
 
-export default function Home({ data }) {
+export default function Home({ userName, doLogin }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -52,7 +54,17 @@ export default function Home({ data }) {
             />
           </div>
         </div>
-        <button className={styles.login}>Login with Spotify</button>
+        <button
+          style={doLogin ? {} : { cursor: "default" }}
+          onClick={() => {
+            if (doLogin) {
+              login();
+            }
+          }}
+          className={styles.login}
+        >
+          {doLogin ? "Login with Spotify" : "Welcome back " + userName}
+        </button>
       </div>
       <div className={styles.topSongs}>
         <div className={styles.topSongsImage}>
@@ -111,4 +123,14 @@ export default function Home({ data }) {
       </div>
     </div>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  const cookies = nookies.get(ctx);
+
+  if (cookies.userName) {
+    return { props: { userName: cookies.userName, doLogin: false } };
+  }
+
+  return { props: { doLogin: true } };
 }

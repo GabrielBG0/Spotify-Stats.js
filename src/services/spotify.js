@@ -9,7 +9,6 @@ const scopes = "user-top-read user-read-private user-read-recently-played";
 const time = new Date();
 
 async function login() {
-  console.log(clientId, clientSecret, scopes, redirectUri);
   window.location.replace(
     "https://accounts.spotify.com/authorize" +
       "?response_type=code" +
@@ -24,15 +23,14 @@ async function login() {
   );
 }
 
-async function refreshToken(ctx) {
-  const cookies = nookies.get(ctx);
-  console.log(cookies);
+async function runRefreshToken(ctx) {
   try {
+    const cookies = nookies.get(ctx);
     const result = await axios.post(
       "https://accounts.spotify.com/api/token",
       stringify({
-        grant_type: "refresh_token",
-        refresh_token: cookies.refresh_token,
+        grant_type: "refreshToken",
+        refreshToken: cookies.refresh_token2,
         client_id: clientId,
         client_secret: clientSecret,
       }),
@@ -43,23 +41,16 @@ async function refreshToken(ctx) {
 
     const data = await result.data;
 
-    nookies.destroy(ctx, "access_token");
-    nookies.destroy(ctx, "token_type");
-    nookies.destroy(ctx, "expires_in");
-    nookies.destroy(ctx, "scope");
-    nookies.destroy(ctx, "refresh_token");
-    nookies.destroy(ctx, "token_time");
-
     nookies.set(ctx, "access_token", data.access_token);
     nookies.set(ctx, "token_type", data.token_type);
     nookies.set(ctx, "expires_in", data.expires_in);
     nookies.set(ctx, "scope", data.scope);
     nookies.set(ctx, "refresh_token", data.refresh_token);
+    nookies.set(ctx, "refresh_token2", data.refresh_token);
     nookies.set(ctx, "token_time", time.getTime() / 1000);
-
     return data;
   } catch (e) {
-    console.log("err");
+    return { err: true };
   }
 }
 async function getCode(code, ctx) {
@@ -86,10 +77,11 @@ async function getCode(code, ctx) {
     nookies.set(ctx, "expires_in", data.expires_in);
     nookies.set(ctx, "scope", data.scope);
     nookies.set(ctx, "refresh_token", data.refresh_token);
+    nookies.set(ctx, "refresh_token2", data.refresh_token);
     nookies.set(ctx, "token_time", time.getTime() / 1000);
 
     return data;
   }
 }
 
-export { SpotifyApi, login, scopes, refreshToken, getCode };
+export { SpotifyApi, login, scopes, runRefreshToken, getCode };

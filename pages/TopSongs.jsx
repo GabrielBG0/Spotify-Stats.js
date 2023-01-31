@@ -1,15 +1,13 @@
 import react, { useEffect } from "react";
 import Head from "next/head";
 import styles from "../styles/pages/Tops.module.scss";
-import coverArt from "../public/coverArt.png";
-import RankingItem from "../src/components/RankingItem";
-import { login, SpotifyApi, refreshToken } from "../src/services/spotify";
+import RankingItemSong from "../src/components/RankingItemSong";
+import { login, SpotifyApi, runRefreshToken } from "../src/services/spotify";
 import nookies from "nookies";
 
 export default function TopSongs({ data, runLogin }) {
   const { topS, topM, topL } = data;
   useEffect(() => {
-    console.log(runLogin);
     if (runLogin) {
       console.error("no token");
       login();
@@ -17,49 +15,52 @@ export default function TopSongs({ data, runLogin }) {
   }, [runLogin]);
 
   function mountList(track, index) {
-    console.log(track.album.images);
     if (index === 0) {
       return (
-        <RankingItem
+        <RankingItemSong
           rank={index + 1}
           img={track.album.images[1].url}
           title={track.name}
           artist={track.artists[0].name}
           bgc="#fcdb66"
           fc="black"
+          key={index}
         />
       );
     } else if (index === 1) {
       return (
-        <RankingItem
+        <RankingItemSong
           rank={index + 1}
           img={track.album.images[1].url}
           title={track.name}
           artist={track.artists[0].name}
           bgc="#afb8c0"
           fc="black"
+          key={index}
         />
       );
     } else if (index === 2) {
       return (
-        <RankingItem
+        <RankingItemSong
           rank={index + 1}
           img={track.album.images[1].url}
           title={track.name}
           artist={track.artists[0].name}
           bgc="#c59455"
           fc="black"
+          key={index}
         />
       );
     } else {
       return (
-        <RankingItem
+        <RankingItemSong
           rank={index + 1}
           img={track.album.images[1].url}
           title={track.name}
           artist={track.artists[0].name}
           bgc="#212121"
           fc="white"
+          key={index}
         />
       );
     }
@@ -101,19 +102,9 @@ export default function TopSongs({ data, runLogin }) {
 }
 
 export async function getServerSideProps(ctx) {
-  const time = new Date();
-
   const cookies = nookies.get(ctx);
 
   if (cookies.access_token) {
-    if (cookies.token_time + cookies.expires_in < time.getTime()) {
-      console.warn("into refresh");
-      const newCookies = await refreshToken(ctx);
-
-      const data = await getLists(newCookies.access_token);
-      return { props: { data, runLogin: false } };
-    }
-
     const data = await getLists(cookies.access_token);
 
     return { props: { data, runLogin: false } };
@@ -126,27 +117,61 @@ export async function getServerSideProps(ctx) {
 
 async function getLists(token) {
   SpotifyApi.setAccessToken(token);
-  const topS = await SpotifyApi.getMyTopTracks({
-    limit: 20,
-    offset: 0,
-    time_range: "short_term",
-  });
+  try {
+    const topS = await SpotifyApi.getMyTopTracks({
+      limit: 10,
+      offset: 0,
+      time_range: "short_term",
+    });
 
-  const topM = await SpotifyApi.getMyTopTracks({
-    limit: 20,
-    offset: 0,
-    time_range: "medium_term",
-  });
+    const topM = await SpotifyApi.getMyTopTracks({
+      limit: 10,
+      offset: 0,
+      time_range: "medium_term",
+    });
 
-  const topL = await SpotifyApi.getMyTopTracks({
-    limit: 20,
-    offset: 0,
-    time_range: "long_term",
-  });
+    const topL = await SpotifyApi.getMyTopTracks({
+      limit: 10,
+      offset: 0,
+      time_range: "long_term",
+    });
 
-  return {
-    topS: topS.body.items,
-    topM: topM.body.items,
-    topL: topL.body.items,
-  };
+    return {
+      topS: topS.body.items,
+      topM: topM.body.items,
+      topL: topL.body.items,
+    };
+  } catch (e) {
+    if (e.body.message === "The access token expired") {
+      const newCookies = await runRefreshToken(ctx);
+      SpotifyApi.setAccessToken(newCookies.access_token);
+      try {
+        const topS = await SpotifyApi.getMyTopTracks({
+          limit: 10,
+          offset: 0,
+          time_range: "short_term",
+        });
+
+        const topM = await SpotifyApi.getMyTopTracks({
+          limit: 10,
+          offset: 0,
+          time_range: "medium_term",
+        });
+
+        const topL = await SpotifyApi.getMyTopTracks({
+          limit: 10,
+          offset: 0,
+          time_range: "long_term",
+        });
+
+        return {
+          topS: topS.body.items,
+          topM: topM.body.items,
+          topL: topL.body.items,
+        };
+      } catch (err) {
+        console.error("second err", err);
+      }
+    }
+  }
 }
