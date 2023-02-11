@@ -1,4 +1,5 @@
 @import "../variables.scss";
+@import "../_mixins.scss";
 
 .hero {
   width: 100%;
@@ -21,6 +22,10 @@
     text-align: center;
     font-size: 1.5rem;
 
+    @include tablet {
+      flex-direction: column;
+    }
+
     .heroText {
       height: 100%;
       display: flex;
@@ -29,6 +34,7 @@
       justify-content: center;
       gap: 1em;
       font-size: 2rem;
+
       span {
         color: $font-accent;
       }
@@ -82,6 +88,7 @@
     span {
       display: block !important;
     }
+
     img {
       border-radius: 10px;
     }
@@ -126,6 +133,7 @@
     span {
       display: block !important;
     }
+
     img {
       border-radius: 10px;
     }
@@ -148,49 +156,5 @@
     span {
       color: $font-accent;
     }
-  }
-}
-
-.recentTracks {
-  width: 100%;
-  height: 75vh;
-  padding: 60px 50px;
-  position: relative;
-
-  .recentTracksBG,
-  .recentTracksTxt {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 100px;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    text-align: center;
-    font-size: 2rem;
-  }
-
-  .recentTracksBG {
-    -webkit-filter: blur(6px);
-    -moz-filter: blur(6px);
-    -o-filter: blur(6px);
-    -ms-filter: blur(6px);
-    filter: blur(6px);
-  }
-
-  .recentTracksTxt span {
-    color: $font-accent;
-  }
-
-  .clock1 {
-    transform: rotate(15.57deg);
-  }
-  .clock2 {
-    transform: rotate(-44.31deg);
-  }
-  .clock3 {
-    transform: rotate(-152.48deg);
   }
 }

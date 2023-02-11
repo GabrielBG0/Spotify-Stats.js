@@ -3,8 +3,7 @@ import Image from "next/image";
 import styles from "../styles/pages/Home.module.scss";
 import arrowRight from "../public/arrowRight.svg";
 import arrowLeft from "../public/arrowLeft.svg";
-import clock from "../public/clock.svg";
-import { login, SpotifyApi } from "../src/services/spotify";
+import { login } from "../src/services/spotify";
 import nookies from "nookies";
 
 export default function Home({ userName, doLogin }) {
@@ -105,20 +104,6 @@ export default function Home({ userName, doLogin }) {
             height={400}
             width={400}
           />
-        </div>
-      </div>
-      <div className={styles.recentTracks}>
-        <div className={styles.recentTracksBG}>
-          <Image className={styles.clock1} src={clock} alt="clock" />
-          <Image className={styles.clock2} src={clock} alt="clock" />
-          <Image className={styles.clock3} src={clock} alt="clock" />
-        </div>
-        <div className={styles.recentTracksTxt}>
-          <h1>
-            See your
-            <br />
-            <span>Recent Tracks</span>
-          </h1>
         </div>
       </div>
     </div>

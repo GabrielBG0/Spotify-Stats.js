@@ -15,7 +15,6 @@ export default function Header() {
         <Link href="/">Home</Link>
         <Link href="/TopArtists">Top Artists</Link>
         <Link href="/TopSongs">Top Songs</Link>
-        <Link href="/RecentTracks">Recent Tracks</Link>
         <span>
           <FiUser size={30} />
         </span>
